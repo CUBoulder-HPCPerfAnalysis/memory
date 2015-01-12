@@ -1,0 +1,2 @@
+# username, machinename, CPU name, CPU GHz, CPU Cores, CPU Cores used, Private cache/core (MB), Shared cache (MB), Array Length (MB), Peak MB/s, Copy MB/s, Scale MB/s, Add MB/s, Triad MB/s, Dot MB/s
+jed, batura, i7-4500U, 1.8, 2, 1, 0.256, 4.096, 76.3, 25600, 19555, 12784, 13483, 13677, ?
