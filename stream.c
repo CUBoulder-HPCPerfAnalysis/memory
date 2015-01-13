@@ -180,17 +180,18 @@ static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 			b[STREAM_ARRAY_SIZE+OFFSET],
 			c[STREAM_ARRAY_SIZE+OFFSET];
 
-static double	avgtime[4] = {0}, maxtime[4] = {0},
-		mintime[4] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
+static double	avgtime[5] = {0}, maxtime[5] = {0},
+		mintime[5] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
+static double res = 0.0;
+static char	*label[5] = {"Copy:      ", "Scale:     ",
+    "Add:       ", "Triad:     ", "Dot:     "};
 
-static char	*label[4] = {"Copy:      ", "Scale:     ",
-    "Add:       ", "Triad:     "};
-
-static double	bytes[4] = {
+static double	bytes[5] = {
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
-    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
+    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
+    2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
     };
 
 extern double mysecond();
@@ -212,7 +213,8 @@ main()
     int			k;
     ssize_t		j;
     STREAM_TYPE		scalar;
-    double		t, times[4][NTIMES];
+    double		t, times[5][NTIMES];
+    double      resn = 0;
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -345,13 +347,25 @@ main()
 	    a[j] = b[j]+scalar*c[j];
 #endif
 	times[3][k] = mysecond() - times[3][k];
+	times[4][k] = mysecond();
+#ifdef TUNED
+	    tuned_STREAM_Dot();
+#else
+	resn = 0.0;
+#pragma omp parallel for reduction(+:resn)
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+		resn += b[j]*c[j];
+#endif
+	times[4][k] = mysecond() - times[4][k];
 	}
 
+    printf("resn %f \n",resn);
+    //resn++;
     /*	--- SUMMARY --- */
 
     for (k=1; k<NTIMES; k++) /* note -- skip first iteration */
 	{
-	for (j=0; j<4; j++)
+	for (j=0; j<5; j++)
 	    {
 	    avgtime[j] = avgtime[j] + times[j][k];
 	    mintime[j] = MIN(mintime[j], times[j][k]);
@@ -360,7 +374,7 @@ main()
 	}
     
     printf("Function    Best Rate MB/s  Avg time     Min time     Max time\n");
-    for (j=0; j<4; j++) {
+    for (j=0; j<5; j++) {
 		avgtime[j] = avgtime[j]/(double)(NTIMES-1);
 
 		printf("%s%12.1f  %11.6f  %11.6f  %11.6f\n", label[j],
@@ -564,6 +578,15 @@ void tuned_STREAM_Scale(STREAM_TYPE scalar)
 #pragma omp parallel for
 	for (j=0; j<STREAM_ARRAY_SIZE; j++)
 	    b[j] = scalar*c[j];
+}
+
+void tuned_STREAM_Dot()
+{
+	ssize_t j;
+	double res1 = 0.0;
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+		res1 += a[j]*b[j];
 }
 
 void tuned_STREAM_Add()
