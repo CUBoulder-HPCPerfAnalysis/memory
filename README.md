@@ -14,7 +14,15 @@ Create a GitHub account, clone this repository, and configure your Git environme
     git config --global user.name 'Your Name'
     git config --global user.email your.email@colorado.edu
 
-(Feel free to use SSH instead.)
+Feel free to use SSH instead on HTTPS.
+If you use bash, I recommend downloading and sourcing [git-prompt](https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh) and [git-completion.bash](https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash).
+Git resources:
+
+* [Official Git Documentation](http://git-scm.com/documentation)
+* [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
+* [Learn Git Branching (interactive)](https://pcottle.github.io/learnGitBranching/)
+* https://try.github.io/
+* [Interactive Cheat Sheet](http://ndpsoftware.com/git-cheatsheet.html)
 
 #### 1. Compile and run the included [STREAM benchmark](http://www.cs.virginia.edu/stream/).
 
