@@ -1,0 +1,2 @@
+# Username, Machinename, CPU name, CPU GHz, CPU Cores, CPU Cores used, Private cache/core (MB), Shared cache (MB), Array Length (MB), Peak MB/s, Copy MB/s, Scale MB/s, Add MB/s, Triad MB/s, Dot MB/s
+dmitry, macbook air, i7-2677M, 1.80, 2, 1, 0.256, 4.096, 10000000, 21300, 9391.4, 9812.2, 9479.1, 9289.7, 11312.3

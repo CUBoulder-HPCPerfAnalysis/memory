@@ -180,17 +180,18 @@ static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 			b[STREAM_ARRAY_SIZE+OFFSET],
 			c[STREAM_ARRAY_SIZE+OFFSET];
 
-static double	avgtime[4] = {0}, maxtime[4] = {0},
-		mintime[4] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
+static double	avgtime[5] = {0}, maxtime[5] = {0},
+		mintime[5] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
 
-static char	*label[4] = {"Copy:      ", "Scale:     ",
-    "Add:       ", "Triad:     "};
+static char	*label[5] = {"Copy:      ", "Scale:     ",
+    "Add:       ", "Triad:     ", "Dotproduct:  "};
 
-static double	bytes[4] = {
+static double	bytes[5] = {
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
-    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
+    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
+    2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
     };
 
 extern double mysecond();
@@ -200,6 +201,7 @@ extern void tuned_STREAM_Copy();
 extern void tuned_STREAM_Scale(STREAM_TYPE scalar);
 extern void tuned_STREAM_Add();
 extern void tuned_STREAM_Triad(STREAM_TYPE scalar);
+extern STREAM_TYPE tuned_STREAM_Dotproduct();
 #endif
 #ifdef _OPENMP
 extern int omp_get_num_threads();
@@ -212,7 +214,7 @@ main()
     int			k;
     ssize_t		j;
     STREAM_TYPE		scalar;
-    double		t, times[4][NTIMES];
+    double		t, times[5][NTIMES];
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -304,6 +306,8 @@ main()
     /*	--- MAIN LOOP --- repeat test cases NTIMES times --- */
 
     scalar = 3.0;
+    // Dot product 
+    STREAM_TYPE dp = 0; 
     for (k=0; k<NTIMES; k++)
 	{
 	times[0][k] = mysecond();
@@ -315,7 +319,7 @@ main()
 	    c[j] = a[j];
 #endif
 	times[0][k] = mysecond() - times[0][k];
-	
+
 	times[1][k] = mysecond();
 #ifdef TUNED
         tuned_STREAM_Scale(scalar);
@@ -345,13 +349,26 @@ main()
 	    a[j] = b[j]+scalar*c[j];
 #endif
 	times[3][k] = mysecond() - times[3][k];
+
+    times[4][k] = mysecond();
+#ifdef TUNED
+        dp = tuned_STREAM_Dotproduct();
+#else
+#pragma omp parallel for 
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+	    dp += a[j]*b[j];
+#endif
+	times[4][k] = mysecond() - times[4][k];
+
+    // Do not comment out this print statement; it is needed to prevent compiler optimization that removes dot product calculation
+    printf("Dot product of a[] and b[]: %f\n", dp);
 	}
 
     /*	--- SUMMARY --- */
 
     for (k=1; k<NTIMES; k++) /* note -- skip first iteration */
 	{
-	for (j=0; j<4; j++)
+	for (j=0; j<5; j++)
 	    {
 	    avgtime[j] = avgtime[j] + times[j][k];
 	    mintime[j] = MIN(mintime[j], times[j][k]);
@@ -360,7 +377,7 @@ main()
 	}
     
     printf("Function    Best Rate MB/s  Avg time     Min time     Max time\n");
-    for (j=0; j<4; j++) {
+    for (j=0; j<5; j++) {
 		avgtime[j] = avgtime[j]/(double)(NTIMES-1);
 
 		printf("%s%12.1f  %11.6f  %11.6f  %11.6f\n", label[j],
@@ -580,6 +597,17 @@ void tuned_STREAM_Triad(STREAM_TYPE scalar)
 #pragma omp parallel for
 	for (j=0; j<STREAM_ARRAY_SIZE; j++)
 	    a[j] = b[j]+scalar*c[j];
+}
+
+STREAM_TYPE tuned_STREAM_Dotproduct()
+{
+	ssize_t j;
+    STREAM_TYPE sum = 0;
+#pragma omp parallel for reduction(+:sum)
+    for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+        sum = sum + a[j]*b[j];
+    }
+    return sum;
 }
 /* end of stubs for the "tuned" versions of the kernels */
 #endif
