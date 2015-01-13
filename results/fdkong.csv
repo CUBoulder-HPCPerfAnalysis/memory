@@ -1,0 +1,2 @@
+# username, machinename, CPU name, CPU GHz, CPU Cores, CPU Cores used, Private cache/core (MB), Shared cache (MB), Array Length (MB), Peak MB/s, Copy MB/s, Scale MB/s, Add MB/s, Triad MB/s, Dot MB/s
+fdkong, Mac Pro, Intel Core i5, 2.6, 2, 1, 0.256, 3, 76.3, 25600, 16088.6, 12375.3, 13221.0, 13366.9, 15023.3
