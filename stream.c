@@ -182,7 +182,6 @@ static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 
 static double	avgtime[5] = {0}, maxtime[5] = {0},
 		mintime[5] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
-static double res = 0.0;
 static char	*label[5] = {"Copy:      ", "Scale:     ",
     "Add:       ", "Triad:     ", "Dot:     "};
 
@@ -436,9 +435,8 @@ double mysecond()
 {
         struct timeval tp;
         struct timezone tzp;
-        int i;
 
-        i = gettimeofday(&tp,&tzp);
+        gettimeofday(&tp,&tzp);
         return ( (double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
 }
 
