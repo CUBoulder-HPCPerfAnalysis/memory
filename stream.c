@@ -198,9 +198,9 @@ extern void checkSTREAMresults();
 #ifdef TUNED
 extern void tuned_STREAM_Copy();
 extern void tuned_STREAM_Scale(STREAM_TYPE scalar);
-extern double tuned_STREAM_Dot();
 extern void tuned_STREAM_Add();
 extern void tuned_STREAM_Triad(STREAM_TYPE scalar);
+extern STREAM_TYPE tuned_STREAM_Dot();
 #endif
 #ifdef _OPENMP
 extern int omp_get_num_threads();
@@ -212,9 +212,8 @@ main()
     int			BytesPerWord;
     int			k;
     ssize_t		j;
-    STREAM_TYPE		scalar;
+    STREAM_TYPE		scalar,resn;
     double		t, times[5][NTIMES];
-    double      resn = 0;
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -317,7 +316,7 @@ main()
 	    c[j] = a[j];
 #endif
 	times[0][k] = mysecond() - times[0][k];
-	
+
 	times[1][k] = mysecond();
 #ifdef TUNED
         tuned_STREAM_Scale(scalar);
@@ -360,7 +359,6 @@ main()
 	}
 
     printf("resn %f \n",resn);
-    //resn++;
     /*	--- SUMMARY --- */
 
     for (k=1; k<NTIMES; k++) /* note -- skip first iteration */
@@ -579,16 +577,6 @@ void tuned_STREAM_Scale(STREAM_TYPE scalar)
 	    b[j] = scalar*c[j];
 }
 
-double tuned_STREAM_Dot()
-{
-	ssize_t j;
-	double res1 = 0.0;
-#pragma omp parallel for reduction(+:res1)
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
-		res1 += a[j]*b[j];
-        return res1;
-}
-
 void tuned_STREAM_Add()
 {
 	ssize_t j;
@@ -604,5 +592,16 @@ void tuned_STREAM_Triad(STREAM_TYPE scalar)
 	for (j=0; j<STREAM_ARRAY_SIZE; j++)
 	    a[j] = b[j]+scalar*c[j];
 }
+
+STREAM_TYPE tuned_STREAM_Dot()
+{
+	ssize_t j;
+	STREAM_TYPE sum = 0.0;
+#pragma omp parallel for reduction(+:sum)
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+		sum += a[j]*b[j];
+        return sum;
+}
+
 /* end of stubs for the "tuned" versions of the kernels */
 #endif
