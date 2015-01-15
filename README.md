@@ -106,3 +106,4 @@ In your commit message, describe what you think the data demonstrates, and submi
 
 * [hwloc](http://www.open-mpi.org/projects/hwloc/): Portable Hardware Locality
 * [likwid](https://code.google.com/p/likwid/): x86 performance tools
+* [Intel Intrinsics Guide](https://software.intel.com/sites/landingpage/IntrinsicsGuide/)
