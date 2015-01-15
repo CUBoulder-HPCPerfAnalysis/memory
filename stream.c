@@ -596,11 +596,15 @@ void tuned_STREAM_Triad(STREAM_TYPE scalar)
 STREAM_TYPE tuned_STREAM_Dot()
 {
 	ssize_t j;
-	STREAM_TYPE sum = 0.0;
-#pragma omp parallel for reduction(+:sum)
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
-		sum += a[j]*b[j];
-        return sum;
+	STREAM_TYPE sum0 = 0.0,sum1 = 0,sum2 = 0,sum3 = 0;
+#pragma omp parallel for reduction(+:sum0,sum1,sum2,sum3)
+	for (j=0; j<STREAM_ARRAY_SIZE; j+=4) {
+		sum0 += a[j+0]*b[j+0];
+                sum1 += a[j+1]*b[j+1];
+                sum2 += a[j+2]*b[j+2];
+                sum3 += a[j+3]*b[j+3];
+        }
+        return sum0+sum1+sum2+sum3;
 }
 
 /* end of stubs for the "tuned" versions of the kernels */
