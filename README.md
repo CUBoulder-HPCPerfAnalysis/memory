@@ -6,6 +6,8 @@ Modern CPU architectures have several levels of cache, each with different seman
 
 ## Experiments
 
+### Day 1: 2015-01-12
+
 #### 0. Setup and clone
 
 Create a GitHub account, clone this repository, and configure your Git environment
@@ -61,6 +63,36 @@ Make a GitHub Fork [this repository](https://github.com/CUBoulder-HPCPerfAnalysi
 There may be ambiguities in the specification.
 If you spot any, [open an issue](https://github.com/CUBoulder-HPCPerfAnalysis/memory/issues).
 Also open issues for ways to improve the workflow and provenance for running experiments and reporting data.
+
+### Day 2: 2015-01-14
+
+#### 0. Postmortem from Day 1
+
+* How machine-readable is our data?
+* Is all our data accurate?
+* Are these results reproducible?
+  * Did everyone use the same compiler?
+  * Same compilation flags?  (Do compilation flags matter?)
+  * Was anything else running?
+* How well do humans follow instructions?
+  * How much can we automate?
+
+#### 1. Visualizing data
+
+It is useful to have a modern statistical environment for analyzing and plotting data.
+The [R Project](http://www.r-project.org/) is a widely used open source statistical package that compares well with commercial packages and has a great user repository (new statistical methods tend to show up here first).
+Unfortunately, the R language has some shortcomings and is not general purpose.
+[Pandas](http://pandas.pydata.org/) is an up-and-coming Python package that provides a "data frame", a suite of common statistical tools, and plotting similar to R.
+I recommend Pandas for this class, but welcome you to use any package you feel comfortable with.
+Experiment with the `stream-analyze.py` script.
+
+#### 2. Effect of non-contiguous access
+
+Prefetchers like to follow contiguous memory streams.
+What happens to performance if we interleave threads?
+What happens if threads try to write to the same cache line?
+Design an experiment to test cache behavior with multiple threads, run it to produce data, and make a plot.
+In your commit message, describe what you think the data demonstrates, and submit a pull request.
 
 ## References
 
