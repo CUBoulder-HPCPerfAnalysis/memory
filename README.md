@@ -85,7 +85,7 @@ Unfortunately, the R language has some shortcomings and is not general purpose.
 [Pandas](http://pandas.pydata.org/) is an up-and-coming Python package that provides a "data frame", a suite of common statistical tools, and plotting similar to R.
 I recommend Pandas for this class, but welcome you to use any package you feel comfortable with.
 Experiment with plotting interesting relationships using the `stream-analyze.py` script.
-The [Pandas visualization documentation](http://pandas.pydata.org/pandas-docs/stable/visualization.html) may be useful.
+The [Pandas visualization documentation](http://pandas.pydata.org/pandas-docs/stable/visualization.html) may be useful, as is the [IPython interpreter](http://ipython.org/).
 
 #### 2. Effect of non-contiguous access
 
