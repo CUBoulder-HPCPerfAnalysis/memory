@@ -84,15 +84,21 @@ The [R Project](http://www.r-project.org/) is a widely used open source statisti
 Unfortunately, the R language has some shortcomings and is not general purpose.
 [Pandas](http://pandas.pydata.org/) is an up-and-coming Python package that provides a "data frame", a suite of common statistical tools, and plotting similar to R.
 I recommend Pandas for this class, but welcome you to use any package you feel comfortable with.
-Experiment with the `stream-analyze.py` script.
+Experiment with plotting interesting relationships using the `stream-analyze.py` script.
+The [Pandas visualization documentation](http://pandas.pydata.org/pandas-docs/stable/visualization.html) may be useful.
 
 #### 2. Effect of non-contiguous access
 
 Prefetchers like to follow contiguous memory streams.
 What happens to performance if we interleave threads?
-What happens if threads try to write to the same cache line?
-Design an experiment to test cache behavior with multiple threads, run it to produce data, and make a plot.
-In your commit message, describe what you think the data demonstrates, and submit a pull request.
+The block-cyclic mapping of the range `0,1,...,N-1` defined by `j(i) = (i*b)%N + (i*b)//N` may be useful.
+What happens if many threads try to write to the same cache line?
+Can you measure the effect of [false sharing](https://en.wikipedia.org/wiki/False_sharing) ([longer article](http://simplygenius.net/Article/FalseSharing)), sometimes called "cache line contention".
+
+Design an experiment to test cache behavior with multiple threads, run it to produce data, and make a plot using Pandas, R, or another plotting system.
+Commit the source code changes, your data, the plotting script, and any figures you produce.
+Describe what your experiment is testing and your interpretation of the data and figures in your commit message and submit as a pull request.
+Plan to present these results (~5 minutes each) next class period (Wednesday, 2015-01-21).
 
 ## References
 
