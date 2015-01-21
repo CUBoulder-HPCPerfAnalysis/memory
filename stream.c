@@ -180,17 +180,18 @@ static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 			b[STREAM_ARRAY_SIZE+OFFSET],
 			c[STREAM_ARRAY_SIZE+OFFSET];
 
-static double	avgtime[5] = {0}, maxtime[5] = {0},
-		mintime[5] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
-static char	*label[5] = {"Copy:      ", "Scale:     ",
-    "Add:       ", "Triad:     ", "Dot:     "};
+static double	avgtime[6] = {0}, maxtime[6] = {0},
+		mintime[6] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
+static char	*label[6] = {"Copy:      ","Scale:     ",
+    "Add:       ", "Triad:     ", "Dot:       ","Add_BlkCyc:"};
 
-static double	bytes[5] = {
+static double	bytes[6] = {
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
-    2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
+    2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
+    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
     };
 
 extern double mysecond();
@@ -213,7 +214,7 @@ main()
     int			k;
     ssize_t		j;
     STREAM_TYPE		scalar,resn;
-    double		t, times[5][NTIMES];
+    double		t, times[6][NTIMES];
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -346,6 +347,7 @@ main()
 	    a[j] = b[j]+scalar*c[j];
 #endif
 	times[3][k] = mysecond() - times[3][k];
+
 	times[4][k] = mysecond();
 #ifdef TUNED
         resn = tuned_STREAM_Dot();
@@ -356,6 +358,19 @@ main()
 		resn += b[j]*c[j];
 #endif
 	times[4][k] = mysecond() - times[4][k];
+
+	times[5][k] = mysecond();
+#ifdef TUNED
+        tuned_STREAM_Add_BlkCyc();
+#else
+	int cache_line_size = 64; // For my Intel Core 2 Duo T6500, at least.
+	int i_map = 0;
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+	    i_map = (j*cache_line_size)%STREAM_ARRAY_SIZE + (j*cache_line_size)/STREAM_ARRAY_SIZE;
+	    c[i_map] = a[i_map]+b[i_map];
+#endif
+	times[5][k] = mysecond() - times[5][k];
 	}
 
     printf("resn %f \n",resn);
