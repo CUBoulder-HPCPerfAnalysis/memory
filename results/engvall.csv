@@ -1,2 +1,1 @@
-# username, machinename, CPU name, CPU GHz, CPU Cores, CPU Cores used, Private cache/core (MB), Shared cache (MB), Array Length (MB), Peak MB/s, Copy MB/s, Scale MB/s, Add MB/s, Triad MB/s, Dot MB/s
-engvall, Luke’s MacBook Pro, i7-4770 , 2, 4, 1, ?, 6, 76.3, 25600, 15213.6, 10417.4, 9501.9, 9563.7, 10771.1
+# username, machinename, CPU name, CPU GHz, CPU Cores, CPU Cores used, Private cache/core (MB), Shared cache (MB), Array Length (MB), Peak MB/s, Copy MB/s, Scale MB/s, Add MB/s, Triad MB/s, Dot MB/s,Rev Copy MB/s, Rev Scale MB/s,Rev  Add MB/s, Rev Triad MB/s,Rev  Dot MB/sengvall, Luke�۪s MacBook Pro, i7-4770 ,2,4,1, ?,6,76.3,25600,16204,11125.7,10146.7,10473.1,12096.5,11967.9,10630.4,10073.1,10363.6,11939.4
