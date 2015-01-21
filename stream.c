@@ -90,8 +90,21 @@
  *          will override the default size of 10M with a new size of 100M elements
  *          per array.
  */
+
+#ifndef PERMUTATION
+#define PERMUTATION(i,t,N) ((i*t)%N+(i*t)/N)
+#endif
+
+#ifndef STREAM_BLOCK_SIZE
+#define STREAM_BLOCK_SIZE (512)
+#endif
+
+#ifndef STREAM_NUM_BLOCKS
+#define STREAM_NUM_BLOCKS (65536)
+#endif
+
 #ifndef STREAM_ARRAY_SIZE
-#   define STREAM_ARRAY_SIZE	10000000
+#   define STREAM_ARRAY_SIZE	(STREAM_BLOCK_SIZE*STREAM_NUM_BLOCKS)
 #endif
 
 /*  2) STREAM runs each kernel "NTIMES" times and reports the *best* result
@@ -183,7 +196,7 @@ static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 static double	avgtime[5] = {0}, maxtime[5] = {0},
 		mintime[5] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
 static char	*label[5] = {"Copy:      ", "Scale:     ",
-    "Add:       ", "Triad:     ", "Dot:     "};
+    "Add:       ", "Triad:     ", "Dot:       "};
 
 static double	bytes[5] = {
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
@@ -211,9 +224,11 @@ main()
     int			quantum, checktick();
     int			BytesPerWord;
     int			k;
-    ssize_t		j;
+    ssize_t		j,i;
     STREAM_TYPE		scalar,resn;
     double		t, times[5][NTIMES];
+    int         n_t;
+    int         j_t;
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -251,6 +266,7 @@ main()
 #pragma omp master
 	{
 	    k = omp_get_num_threads();
+	    n_t = omp_get_num_threads();
 	    printf ("Number of Threads requested = %i\n",k);
         }
     }
@@ -311,9 +327,12 @@ main()
 #ifdef TUNED
         tuned_STREAM_Copy();
 #else
-#pragma omp parallel for
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
-	    c[j] = a[j];
+#pragma omp parallel for private(j_t)
+	for(j=0; j<STREAM_NUM_BLOCKS; j++){
+	  j_t = PERMUTATION(j,n_t,STREAM_NUM_BLOCKS);
+	  for(i=0; i< STREAM_BLOCK_SIZE; i++)
+	   c[j_t*STREAM_BLOCK_SIZE+i] = a[j_t*STREAM_BLOCK_SIZE+i];
+	}
 #endif
 	times[0][k] = mysecond() - times[0][k];
 
@@ -321,9 +340,12 @@ main()
 #ifdef TUNED
         tuned_STREAM_Scale(scalar);
 #else
-#pragma omp parallel for
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
-	    b[j] = scalar*c[j];
+#pragma omp parallel for private(j_t)
+	for(j=0; j<STREAM_NUM_BLOCKS; j++){
+	  j_t = PERMUTATION(j,n_t,STREAM_NUM_BLOCKS);
+	  for(i=0; i< STREAM_BLOCK_SIZE; i++)
+	   b[j_t*STREAM_BLOCK_SIZE+i] = scalar*c[j_t*STREAM_BLOCK_SIZE+i];
+	}
 #endif
 	times[1][k] = mysecond() - times[1][k];
 	
@@ -331,9 +353,12 @@ main()
 #ifdef TUNED
         tuned_STREAM_Add();
 #else
-#pragma omp parallel for
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
-	    c[j] = a[j]+b[j];
+#pragma omp parallel for private(j_t)
+	for(j=0; j<STREAM_NUM_BLOCKS; j++){
+	  j_t = PERMUTATION(j,n_t,STREAM_NUM_BLOCKS);
+	  for(i=0; i< STREAM_BLOCK_SIZE; i++)
+		c[j_t*STREAM_BLOCK_SIZE+i] = a[j_t*STREAM_BLOCK_SIZE+i]+b[j_t*STREAM_BLOCK_SIZE+i];
+    }
 #endif
 	times[2][k] = mysecond() - times[2][k];
 	
@@ -341,9 +366,12 @@ main()
 #ifdef TUNED
         tuned_STREAM_Triad(scalar);
 #else
-#pragma omp parallel for
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
-	    a[j] = b[j]+scalar*c[j];
+#pragma omp parallel for private(j_t)
+	for(j=0; j<STREAM_NUM_BLOCKS; j++){
+	  j_t = PERMUTATION(j,n_t,STREAM_NUM_BLOCKS);
+	  for(i=0; i< STREAM_BLOCK_SIZE; i++)
+	    a[j_t*STREAM_BLOCK_SIZE+i] = b[j_t*STREAM_BLOCK_SIZE+i]+scalar*c[j_t*STREAM_BLOCK_SIZE+i];
+    }
 #endif
 	times[3][k] = mysecond() - times[3][k];
 	times[4][k] = mysecond();
@@ -351,13 +379,16 @@ main()
         resn = tuned_STREAM_Dot();
 #else
 	resn = 0.0;
-#pragma omp parallel for reduction(+:resn)
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
-		resn += b[j]*c[j];
+#pragma omp parallel for reduction(+:resn) private(j_t)
+	for(j=0; j<STREAM_NUM_BLOCKS; j++){
+       j_t = PERMUTATION(j,n_t,STREAM_NUM_BLOCKS);
+	   for(i=0; i< STREAM_BLOCK_SIZE; i++){
+	     resn += b[j_t*STREAM_BLOCK_SIZE+i]*c[j_t*STREAM_BLOCK_SIZE+i];
+	  }
+	}
 #endif
 	times[4][k] = mysecond() - times[4][k];
 	}
-
     printf("resn %f \n",resn);
     /*	--- SUMMARY --- */
 
