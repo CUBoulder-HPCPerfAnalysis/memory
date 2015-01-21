@@ -15,5 +15,7 @@ df = pandas.concat(pandas.read_csv(f, na_values='?').rename(columns=normalize_co
 print(df)
 
 # Does performance depend on CPU clock speed?
-df.plot(x='Cache Line Size', y='Best Rate MB/s', kind='scatter')
+ax = df.plot(x='Stream Skip Length', y='Best Rate MB/s', kind='scatter')
+fig = ax.get_figure();
+fig.savefig('results/ryan_Best_Rate_vs_Skip_Length.png');
 pyplot.show()

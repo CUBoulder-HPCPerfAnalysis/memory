@@ -1,4 +1,4 @@
-Cache Line Size, Best Rate MB/s, Avg. Time, Min. Time, Max. Time
+Stream Skip Length, Best Rate MB/s, Avg. Time, Min. Time, Max. Time
 1, 3646.9, 0.067282, 0.065809, 0.068625
 2, 1807.8, 0.137597, 0.132759, 0.146286
 3, 1214.4, 0.201644, 0.197631, 0.224629

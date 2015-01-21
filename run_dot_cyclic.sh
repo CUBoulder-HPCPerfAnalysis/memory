@@ -6,7 +6,7 @@
 
 results_file="results/ryan_Add_BlkCyc.csv"
 
-echo 'Cache Line Size, Best Rate MB/s, Avg. Time, Min. Time, Max. Time' | tee $results_file
+echo 'Stream Skip Length, Best Rate MB/s, Avg. Time, Min. Time, Max. Time' | tee $results_file
 
 for i in {1..64}; do
    ./stream $i |

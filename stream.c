@@ -203,7 +203,7 @@ extern void tuned_STREAM_Scale(STREAM_TYPE scalar);
 extern void tuned_STREAM_Add();
 extern void tuned_STREAM_Triad(STREAM_TYPE scalar);
 extern STREAM_TYPE tuned_STREAM_Dot();
-extern void tuned_STREAM_Add_BlkCyc(int cache_line_size);
+extern void tuned_STREAM_Add_BlkCyc(int stream_skip_length);
 #endif
 #ifdef _OPENMP
 extern int omp_get_num_threads();
@@ -217,7 +217,7 @@ int main(int argc, char *argv[])
     ssize_t		j;
     STREAM_TYPE		scalar,resn;
     double		t, times[6][NTIMES];
-    int 		cache_line_size = 64; // For my Intel Core 2 Duo T6500, at least.
+    int 		stream_skip_length = 64; // For my Intel Core 2 Duo T6500, at least.
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -227,11 +227,11 @@ int main(int argc, char *argv[])
             printf("Argument specifying cache line size must be in the range [1,1024].\n");
 	    return -1;
 	}
-        cache_line_size = atoi(argv[1]);
+        stream_skip_length = atoi(argv[1]);
     }
 
     printf(HLINE);
-    printf("Using cache_line_size of %3i\n", cache_line_size);
+    printf("Using stream_skip_length of %3i\n", stream_skip_length);
 
     printf(HLINE);
     printf("STREAM version $Revision: 5.10 $\n");
@@ -376,12 +376,12 @@ int main(int argc, char *argv[])
 
 	times[5][k] = mysecond();
 #ifdef TUNED
-        tuned_STREAM_Add_BlkCyc(cache_line_size);
+        tuned_STREAM_Add_BlkCyc(stream_skip_length);
 #else
 	int i_map = 0;
 #pragma omp parallel for
 	for (j=0; j<STREAM_ARRAY_SIZE; j++) {
-	    i_map = (j*cache_line_size)%STREAM_ARRAY_SIZE + (j*cache_line_size)/STREAM_ARRAY_SIZE;
+	    i_map = (j*stream_skip_length)%STREAM_ARRAY_SIZE + (j*stream_skip_length)/STREAM_ARRAY_SIZE;
 	    c[i_map] = a[i_map]+b[i_map];
 	}
 #endif
@@ -638,16 +638,16 @@ STREAM_TYPE tuned_STREAM_Dot()
         return sum0+sum1+sum2+sum3;
 }
 
-void tuned_STREAM_Add_BlkCyc(int cache_line_size)
+void tuned_STREAM_Add_BlkCyc(int stream_skip_length)
 {
 	ssize_t j;
 	int i_map0 = 0, i_map1 = 0, i_map2 = 0, i_map3 = 0;
 #pragma omp parallel for reduction(+:i_map0,i_map1,i_map2,i_map3)
 	for (j=0; j<STREAM_ARRAY_SIZE; j+=4) {
-	    i_map0 = ((j+0)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+0)*cache_line_size)/STREAM_ARRAY_SIZE;
-	    i_map1 = ((j+1)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+1)*cache_line_size)/STREAM_ARRAY_SIZE;
-	    i_map2 = ((j+2)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+2)*cache_line_size)/STREAM_ARRAY_SIZE;
-	    i_map3 = ((j+3)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+3)*cache_line_size)/STREAM_ARRAY_SIZE;
+	    i_map0 = ((j+0)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+0)*stream_skip_length)/STREAM_ARRAY_SIZE;
+	    i_map1 = ((j+1)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+1)*stream_skip_length)/STREAM_ARRAY_SIZE;
+	    i_map2 = ((j+2)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+2)*stream_skip_length)/STREAM_ARRAY_SIZE;
+	    i_map3 = ((j+3)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+3)*stream_skip_length)/STREAM_ARRAY_SIZE;
 	    c[i_map0] = a[i_map0]+b[i_map0];
 	    c[i_map1] = a[i_map1]+b[i_map1];
 	    c[i_map2] = a[i_map2]+b[i_map2];
