@@ -181,9 +181,10 @@ static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 			c[STREAM_ARRAY_SIZE+OFFSET];
 
 static double	avgtime[6] = {0}, maxtime[6] = {0},
-		mintime[6] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
-static char	*label[6] = {"Copy:      ","Scale:     ",
-    "Add:       ", "Triad:     ", "Dot:       ","Add_BlkCyc:"};
+		mintime[6] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
+static char	*label[6] = {"Copy:      ", "Scale:     ",
+                             "Add:       ", "Triad:     ",
+                             "Dot:       ", "Add_BlkCyc:"};
 
 static double	bytes[6] = {
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
@@ -202,21 +203,35 @@ extern void tuned_STREAM_Scale(STREAM_TYPE scalar);
 extern void tuned_STREAM_Add();
 extern void tuned_STREAM_Triad(STREAM_TYPE scalar);
 extern STREAM_TYPE tuned_STREAM_Dot();
+extern void tuned_STREAM_Add_BlkCyc(int cache_line_size);
 #endif
 #ifdef _OPENMP
 extern int omp_get_num_threads();
 #endif
-int
-main()
-    {
+int main(int argc, char *argv[])
+    {	
+
     int			quantum, checktick();
     int			BytesPerWord;
     int			k;
     ssize_t		j;
     STREAM_TYPE		scalar,resn;
     double		t, times[6][NTIMES];
+    int 		cache_line_size = 64; // For my Intel Core 2 Duo T6500, at least.
 
     /* --- SETUP --- determine precision and check timing --- */
+
+    if ( argc == 2 ) {
+	int temp = atoi(argv[1]);
+	if (temp < 1 || temp > 1024) {
+            printf("Argument specifying cache line size must be in the range [1,1024].\n");
+	    return -1;
+	}
+        cache_line_size = atoi(argv[1]);
+    }
+
+    printf(HLINE);
+    printf("Using cache_line_size of %3i\n", cache_line_size);
 
     printf(HLINE);
     printf("STREAM version $Revision: 5.10 $\n");
@@ -361,16 +376,17 @@ main()
 
 	times[5][k] = mysecond();
 #ifdef TUNED
-        tuned_STREAM_Add_BlkCyc();
+        tuned_STREAM_Add_BlkCyc(cache_line_size);
 #else
-	int cache_line_size = 64; // For my Intel Core 2 Duo T6500, at least.
 	int i_map = 0;
 #pragma omp parallel for
-	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+	for (j=0; j<STREAM_ARRAY_SIZE; j++) {
 	    i_map = (j*cache_line_size)%STREAM_ARRAY_SIZE + (j*cache_line_size)/STREAM_ARRAY_SIZE;
 	    c[i_map] = a[i_map]+b[i_map];
+	}
 #endif
 	times[5][k] = mysecond() - times[5][k];
+	//printf("Run %2i time: %11.6f\n", k, times[5][k]);
 	}
 
     printf("resn %f \n",resn);
@@ -378,7 +394,7 @@ main()
 
     for (k=1; k<NTIMES; k++) /* note -- skip first iteration */
 	{
-	for (j=0; j<5; j++)
+	for (j=0; j<6; j++)
 	    {
 	    avgtime[j] = avgtime[j] + times[j][k];
 	    mintime[j] = MIN(mintime[j], times[j][k]);
@@ -387,7 +403,7 @@ main()
 	}
     
     printf("Function    Best Rate MB/s  Avg time     Min time     Max time\n");
-    for (j=0; j<5; j++) {
+    for (j=0; j<6; j++) {
 		avgtime[j] = avgtime[j]/(double)(NTIMES-1);
 
 		printf("%s%12.1f  %11.6f  %11.6f  %11.6f\n", label[j],
@@ -620,6 +636,23 @@ STREAM_TYPE tuned_STREAM_Dot()
                 sum3 += a[j+3]*b[j+3];
         }
         return sum0+sum1+sum2+sum3;
+}
+
+void tuned_STREAM_Add_BlkCyc(int cache_line_size)
+{
+	ssize_t j;
+	int i_map0 = 0, i_map1 = 0, i_map2 = 0, i_map3 = 0;
+#pragma omp parallel for reduction(+:i_map0,i_map1,i_map2,i_map3)
+	for (j=0; j<STREAM_ARRAY_SIZE; j+=4) {
+	    i_map0 = ((j+0)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+0)*cache_line_size)/STREAM_ARRAY_SIZE;
+	    i_map1 = ((j+1)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+1)*cache_line_size)/STREAM_ARRAY_SIZE;
+	    i_map2 = ((j+2)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+2)*cache_line_size)/STREAM_ARRAY_SIZE;
+	    i_map3 = ((j+3)*cache_line_size)%STREAM_ARRAY_SIZE + ((j+3)*cache_line_size)/STREAM_ARRAY_SIZE;
+	    c[i_map0] = a[i_map0]+b[i_map0];
+	    c[i_map1] = a[i_map1]+b[i_map1];
+	    c[i_map2] = a[i_map2]+b[i_map2];
+	    c[i_map3] = a[i_map3]+b[i_map3];
+	}
 }
 
 /* end of stubs for the "tuned" versions of the kernels */
