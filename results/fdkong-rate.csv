@@ -1,0 +1,13 @@
+# username, machinename, CPU name, CPU GHz, CPU Cores, Block Size, Private cache/core (MB), Shared cache (MB), Array Length (MB), Peak MB/s, Copy MB/s, Scale MB/s, Add MB/s, Triad MB/s, Dot MB/s
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,1,0.256,3,76.3,25600,10046.4,11015.4,4085.5,4142.5,6491.4
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,2,0.256,3,76.3,25600,3361.7,4049.5,3950.4,3980.6,5750.0
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,4,0.256,3,76.3,25600,5828.2,6890.0,8286.1,9102.2,10061.9
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,8,0.256,3,76.3,25600,5604.6,6328.5,9628.0,6291.8,9487.2
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,16,0.256,3,76.3,25600,6265.6,11043.8,8540.2,9867.6,15598.3
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,32,0.256,3,76.3,25600,7793.2,9533.4,12412.3,12365.3,12581.3
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,64,0.256,3,76.3,25600,8644.5,8761.3,10178.4,8864.4,13594.8
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,128,0.256,3,76.3,25600,11486.1,9444.0,9026.4,9003.1,12985.0
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,256,0.256,3,76.3,25600,13403.8,9926.7,10819.5,10791.8,17497.9
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,512,0.256,3,76.3,25600,15284.6,10716.6,11982.6,11798.1,17479.1
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,1024,0.256,3,76.3,25600,15373.8,11052.3,11728.0,12023.9,17000.6
+fdkong,reshut2-69-67-dhcp.int.colorado.edu,Intel,Core,i5,2.6,2,2048,0.256,3,76.3,25600,11419.9,11354.9,12039.3,12116.5,18165.8
