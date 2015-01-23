@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <unistd.h>
 
 #define CHK(err) do { if (err) { fprintf(stderr,"Error %d at %s:%d %s()\n",err,__FILE__,__LINE__,__func__); exit(err); } } while (0)
 static double Sqr(double x) { return x*x; }
