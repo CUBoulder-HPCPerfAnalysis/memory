@@ -176,6 +176,10 @@
 #define STREAM_TYPE double
 #endif
 
+#ifndef SKIP
+#   define SKIP   1
+#endif
+
 static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 			b[STREAM_ARRAY_SIZE+OFFSET],
 			c[STREAM_ARRAY_SIZE+OFFSET];
@@ -183,7 +187,7 @@ static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
 static double	avgtime[5] = {0}, maxtime[5] = {0},
 		mintime[5] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
 static char	*label[5] = {"Copy:      ", "Scale:     ",
-    "Add:       ", "Triad:     ", "Dot:     "};
+    "Add:       ", "Triad:     ", "Dot_BLOCK_CYCLIC:     "};
 
 static double	bytes[5] = {
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
@@ -200,7 +204,7 @@ extern void tuned_STREAM_Copy();
 extern void tuned_STREAM_Scale(STREAM_TYPE scalar);
 extern void tuned_STREAM_Add();
 extern void tuned_STREAM_Triad(STREAM_TYPE scalar);
-extern STREAM_TYPE tuned_STREAM_Dot();
+extern STREAM_TYPE tuned_STREAM_Dot_BLOCK_CYCLIC();
 #endif
 #ifdef _OPENMP
 extern int omp_get_num_threads();
@@ -214,6 +218,9 @@ main()
     ssize_t		j;
     STREAM_TYPE		scalar,resn;
     double		t, times[5][NTIMES];
+
+
+    printf("SKIP - %d", SKIP);
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -348,7 +355,7 @@ main()
 	times[3][k] = mysecond() - times[3][k];
 	times[4][k] = mysecond();
 #ifdef TUNED
-        resn = tuned_STREAM_Dot();
+        resn = tuned_STREAM_Dot_BLOCK_CYCLIC();
 #else
 	resn = 0.0;
 #pragma omp parallel for reduction(+:resn)
@@ -593,16 +600,20 @@ void tuned_STREAM_Triad(STREAM_TYPE scalar)
 	    a[j] = b[j]+scalar*c[j];
 }
 
-STREAM_TYPE tuned_STREAM_Dot()
+STREAM_TYPE tuned_STREAM_Dot_BLOCK_CYCLIC()
 {
-	ssize_t j;
+	ssize_t i,j0,j1,j2,j3;
 	STREAM_TYPE sum0 = 0.0,sum1 = 0,sum2 = 0,sum3 = 0;
 #pragma omp parallel for reduction(+:sum0,sum1,sum2,sum3)
-	for (j=0; j<STREAM_ARRAY_SIZE; j+=4) {
-		sum0 += a[j+0]*b[j+0];
-                sum1 += a[j+1]*b[j+1];
-                sum2 += a[j+2]*b[j+2];
-                sum3 += a[j+3]*b[j+3];
+	for (i=0; i<STREAM_ARRAY_SIZE; i+=4) {
+                j0 = ((i+0)*SKIP)%STREAM_ARRAY_SIZE + ((i+0)*SKIP)/STREAM_ARRAY_SIZE;
+                j1 = ((i+1)*SKIP)%STREAM_ARRAY_SIZE + ((i+1)*SKIP)/STREAM_ARRAY_SIZE;
+                j2 = ((i+2)*SKIP)%STREAM_ARRAY_SIZE + ((i+2)*SKIP)/STREAM_ARRAY_SIZE;
+                j3 = ((i+3)*SKIP)%STREAM_ARRAY_SIZE + ((i+3)*SKIP)/STREAM_ARRAY_SIZE;
+		        sum0 += a[j0]*b[j0];
+                sum1 += a[j1]*b[j1];
+                sum2 += a[j2]*b[j2];
+                sum3 += a[j3]*b[j3];
         }
         return sum0+sum1+sum2+sum3;
 }
