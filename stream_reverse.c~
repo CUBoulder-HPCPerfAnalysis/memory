@@ -584,6 +584,7 @@ void tuned_STREAM_Copy()
 for (bb = 0; bb<(STREAM_ARRAY_SIZE/BLOCK_SIZE); bb++)
 	for (ii=BLOCK_SIZE-1; ii>=0; ii--)
 		j = bb*BLOCK_SIZE + ii;
+		printf("%f \n",(double)bb);
             c[j] = a[j];
 }
 
