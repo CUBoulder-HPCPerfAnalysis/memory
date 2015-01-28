@@ -69,8 +69,9 @@ static int SetupProblem(Grid g,double *u,double *b) {
 }
 
 // Update u -= D^{-1} (A u - b) and compute 2-norm of unpreconditioned residual
-static int Jacobi_7pt(Grid g,double *u,const double *b,double w,double *rnorm2) {
+static int Jacobi_7pt(Grid g,double *u,double *uold, const double *b,double w,double *rnorm2) {
   double (*uu)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])u;
+  double (*uuold)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])uold;
   const double (*bb)[g->m[1]][g->m[2]] = (const double(*)[g->m[1]][g->m[2]])b;
   double h[] = {g->L[0]/(g->m[0]-1),g->L[1]/(g->m[1]-1),g->L[2]/(g->m[2]-1)};
   double sum = 0;
@@ -82,14 +83,14 @@ static int Jacobi_7pt(Grid g,double *u,const double *b,double w,double *rnorm2) 
         double diag = 2/Sqr(h[0]) + 2/Sqr(h[1]) + 2/Sqr(h[2]);
         double residual;
         if (GridInterior(g,i,j,k)) {
-          residual = diag * uu[i][j][k]
-            - (uu[i-1][j][k] + uu[i+1][j][k])/Sqr(h[0])
-            - (uu[i][j-1][k] + uu[i][j+1][k])/Sqr(h[1])
-            - (uu[i][j][k-1] + uu[i][j][k+1])/Sqr(h[2])
+          residual = diag * uuold[i][j][k]
+            - (uuold[i-1][j][k] + uuold[i+1][j][k])/Sqr(h[0])
+            - (uuold[i][j-1][k] + uuold[i][j+1][k])/Sqr(h[1])
+            - (uuold[i][j][k-1] + uuold[i][j][k+1])/Sqr(h[2])
             - bb[i][j][k];
         } else {
           diag = 1;
-          residual = uu[i][j][k] - bb[i][j][k];
+          residual = uuold[i][j][k] - bb[i][j][k];
         }
         uu[i][j][k] -= (w/diag) * residual;
         sum += residual*residual;
@@ -123,11 +124,13 @@ int main(int argc, char *argv[])
 {
   Grid g = calloc(1,sizeof(*g));
   g->L[0] = g->L[1] = g->L[2] = 1.0;
-  double *u,*uexact,*b,w = 1.0,bnorm2,bnormMax,unorm2,unormMax,enorm2,enormMax;
+  double *u,*uold, *uexact,*b,w = 1.0,bnorm2,bnormMax,unorm2,unormMax,enorm2,enormMax;
+  double *swap;
   int err,opt,niterations = 10,verbose = 0;
+  int isgs = 0;
   cycles_t *cyclelog;
 
-  while ((opt = getopt(argc,argv,"m:L:n:w:v")) != -1) {
+  while ((opt = getopt(argc,argv,"m:L:n:w:v:g")) != -1) {
     switch (opt) {
     case 'm': { // Number of grid points
       const char *ptr = optarg;
@@ -164,17 +167,36 @@ int main(int argc, char *argv[])
     case 'v':
       verbose = 1;
       break;
+    case 'g':
+      isgs =1;/* use Gauss-seidel */
+      break;
     default:
       return usage(argv[0]);
     }
   }
   if (!g->m[0]) return usage(argv[0]);
 
-  printf("m %ld,%ld,%ld  L %f %f %f\n",g->m[0],g->m[1],g->m[2],g->L[0],g->L[1],g->L[2]);
+  printf("m %ld,%ld,%ld  L %f %f %f  GS %ld\n",g->m[0],g->m[1],g->m[2],g->L[0],g->L[1],g->L[2], isgs);
+
+#pragma omp parallel
+    {
+#pragma omp master
+	{
+	    printf ("Number of Threads requested = %i\n",omp_get_num_threads());
+    }
+    }
+
 
   err = GridCreateVector(g,&u);CHK(err);
   err = GridCreateVector(g,&uexact);CHK(err);
   err = GridCreateVector(g,&b);CHK(err);
+  if(!isgs){
+	err = GridCreateVector(g,&uold);CHK(err);
+  }else
+  {
+	  uold = u;
+  }
+
 
   err = SetupProblem(g,uexact,b);CHK(err);
 
@@ -186,7 +208,10 @@ int main(int argc, char *argv[])
   for (int i=0; i<niterations; i++) {
     double rnorm;
     cyclelog[i] = rdtsc();
-    err = Jacobi_7pt(g,u,b,w,&rnorm);CHK(err);
+    err = Jacobi_7pt(g,u,uold,b,w,&rnorm);CHK(err);
+    swap = u;
+    u = uold;
+    uold = swap;
     cyclelog[i] = rdtsc() - cyclelog[i];
     if (verbose) printf("Jacobi iteration % 3d  |r| %10.4e  |r|/|b| %10.4e\n",i,rnorm,rnorm/bnorm2);
   }
