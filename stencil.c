@@ -103,7 +103,7 @@ static int Jacobi_7pt(Grid g,double *u,const double *b,double w,double *rnorm2) 
 // Compute algebraic norm |u-v|_2 if v is non-NULL, otherwise |u|_2
 static int Norm(Grid g,const double *u,const double *v,double *norm2,double *normMax) {
   double sum = 0,max = 0;
-  #pragma omp parallel for reduction(+:sum)
+  #pragma omp parallel for reduction(+:sum) reduction(max:max)
   for (int i=0; i<g->m[0]*g->m[1]*g->m[2]; i++) {
     double x = u[i] - (v ? v[i] : 0.);
     sum += Sqr(x);
