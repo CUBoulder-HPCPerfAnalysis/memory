@@ -100,6 +100,64 @@ Commit the source code changes, your data, the plotting script, and any figures 
 Describe what your experiment is testing and your interpretation of the data and figures in your commit message and submit as a pull request.
 Plan to present these results (~5 minutes each) next class period (Wednesday, 2015-01-21).
 
+### Day 3: 2015-01-21
+
+#### 0. Postmortem and presentations
+
+* Effect of array sizes
+* Effect of interlacing/striding
+* Relative cost of moving a cache line into memory multiple times versus having multiple cores write to it concurrently
+* Practical issues
+
+#### 1. Introduction to stencil operations
+
+* Modeling reusable and non-reusable memory accesses
+* Arithmetic Intensity
+* Multiplicative (Gauss-Seidel) versus additive (Jacobi)
+* Boundary conditions
+
+### Day 4: 2015-01-26
+
+#### 0. Experiences with stencil.c
+
+* What experiments did you run?
+* Did you try simplifying/modifying the code?
+* Are boundary conditions a problem?
+* Were divisions hoisted out of the inner loop?
+
+#### 1. Introduction to profiling tools
+
+* Gprof (comes with binutils, gcc support)
+
+  * A simple tool with compiled-in function-level instrumentation.
+  * Usage: compile with `-pg`, run application (which now writes `gmon.out`), and use `gprof executable gmon.out`
+  * Good performance, accurate measure of function calls.
+  * What was inlined?
+  * Ways to prevent inlining.
+  * [Gprof2Dot](https://code.google.com/p/jrfonseca/wiki/Gprof2Dot)
+
+* [Valgrind](http://valgrind.org) (start with Callgrind)
+
+  * Simulator -- accurate, reproducible, fine-grained, very slooooow
+  * Usage: `valgrind --tool=callgrind ./program -args`
+  * Nice visualizations with [KCachegrind](http://kcachegrind.sourceforge.net/html/Home.html)
+  * Annotated source and assembly (`--dump-instr=yes`)
+
+* [Linux Perf](https://perf.wiki.kernel.org/index.php/Main_Page)
+
+  * Interrupt-based profiler, does not need special compilation.
+  * [Brendan Gregg's Examples](http://www.brendangregg.com/perf.html) -- best place to start
+  * Usage: `perf record ./program -args`, then `perf report`
+  * Annotates assembly
+  * Good for drilling into system issues.
+
+* Other instrumentation systems
+
+  * [Scalasca](http://www.scalasca.org/) -- open source, parallel support
+  * [TAU](https://www.cs.uoregon.edu/research/tau/about.php) -- open source, parallel support
+  * [Intel VTune](https://software.intel.com/en-us/intel-vtune-amplifier-xe/)
+  * Sun Studio used to be freely distributed and include a profiler.
+
 ## References
 
 * [STREAM Benchmark](http://www.cs.virginia.edu/stream/)
@@ -107,6 +165,8 @@ Plan to present these results (~5 minutes each) next class period (Wednesday, 20
 * [Gustavo Duartes, *Cache: A Place for Concealment and Safekeeping*, 2009](http://duartes.org/gustavo/blog/post/intel-cpu-caches/)
 * [Gustavo Duartes, *Getting Physical With Memory*, 2009](http://duartes.org/gustavo/blog/post/getting-physical-with-memory/)
 * [John McCalpin's blog](http://sites.utexas.edu/jdm4372/) (mostly about memory performance)
+* [Datta et al, *Optimization and Performance Modeling of Stencil Computations on Modern Microprocessors*, 2009](http://epubs.siam.org/doi/abs/10.1137/070693199)
+* [Malas et al, *Optimizing the performance of streaming numerical kernels on the IBM Blue Gene/P PowerPC 450 processor*, 2012](http://dx.doi.org/10.1177/1094342012444795) ([arXiv](http://arxiv.org/pdf/1201.3496.pdf))
 
 ## Tools
 
