@@ -103,29 +103,31 @@ static int SOR_7pt(Grid g,double **u,__attribute__((unused)) double **utmp,const
 
 // Weighted Jacobi update u -= D^{-1} (A u - b) and compute 2-norm of unpreconditioned residual
 static int Jacobi_7pt(Grid g,double **u,double **utmp,const double *b,double w,double *rnorm2) {
-  double (*uu)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])*u;
-  double (*unew)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])*utmp;
-  const double (*bb)[g->m[1]][g->m[2]] = (const double(*)[g->m[1]][g->m[2]])b;
-  double h[] = {g->L[0]/(g->m[0]-1),g->L[1]/(g->m[1]-1),g->L[2]/(g->m[2]-1)};
+  double (*restrict uu)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])*u;
+  double (*restrict unew)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])*utmp;
+  const double (*restrict bb)[g->m[1]][g->m[2]] = (const double(*)[g->m[1]][g->m[2]])b;
+  const double h[] = {g->L[0]/(g->m[0]-1),g->L[1]/(g->m[1]-1),g->L[2]/(g->m[2]-1)};
+  double ih2[] = {1/Sqr(h[0]),1/Sqr(h[1]),1/Sqr(h[2])};
+  double diag = 2/Sqr(h[0]) + 2/Sqr(h[1]) + 2/Sqr(h[2]);
+  double idiag = 1/diag;
   double sum = 0;
 
   #pragma omp parallel for reduction(+:sum)
   for (int i=0; i<g->m[0]; i++) {
     for (int j=0; j<g->m[1]; j++) {
       for (int k=0; k<g->m[2]; k++) {
-        double diag = 2/Sqr(h[0]) + 2/Sqr(h[1]) + 2/Sqr(h[2]);
         double residual;
         if (GridInterior(g,i,j,k)) {
           residual = diag * uu[i][j][k]
-            - (uu[i-1][j][k] + uu[i+1][j][k])/Sqr(h[0])
-            - (uu[i][j-1][k] + uu[i][j+1][k])/Sqr(h[1])
-            - (uu[i][j][k-1] + uu[i][j][k+1])/Sqr(h[2])
+            - (uu[i-1][j][k] + uu[i+1][j][k])*ih2[0]
+            - (uu[i][j-1][k] + uu[i][j+1][k])*ih2[1]
+            - (uu[i][j][k-1] + uu[i][j][k+1])*ih2[2]
             - bb[i][j][k];
+          unew[i][j][k] = uu[i][j][k] - w * idiag * residual;
         } else {
-          diag = 1;
           residual = uu[i][j][k] - bb[i][j][k];
+          unew[i][j][k] = uu[i][j][k] - w * residual;
         }
-        unew[i][j][k] = uu[i][j][k] - (w/diag) * residual;
         sum += residual*residual;
       }
     }
