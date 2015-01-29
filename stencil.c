@@ -68,9 +68,10 @@ static int SetupProblem(Grid g,double *u,double *b) {
   return 0;
 }
 
-// Update u -= D^{-1} (A u - b) and compute 2-norm of unpreconditioned residual
-static int Jacobi_7pt(Grid g,double *u,const double *b,double w,double *rnorm2) {
-  double (*uu)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])u;
+// SOR (weighted Gauss-Seidel) update of u and compute 2-norm of unpreconditioned residual
+__attribute__((noinline))
+static int SOR_7pt(Grid g,double **u,__attribute__((unused)) double **utmp,const double *b,double w,double *rnorm2) {
+  double (*uu)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])*u;
   const double (*bb)[g->m[1]][g->m[2]] = (const double(*)[g->m[1]][g->m[2]])b;
   double h[] = {g->L[0]/(g->m[0]-1),g->L[1]/(g->m[1]-1),g->L[2]/(g->m[2]-1)};
   double sum = 0;
@@ -100,6 +101,41 @@ static int Jacobi_7pt(Grid g,double *u,const double *b,double w,double *rnorm2) 
   return 0;
 }
 
+// Weighted Jacobi update u -= D^{-1} (A u - b) and compute 2-norm of unpreconditioned residual
+static int Jacobi_7pt(Grid g,double **u,double **utmp,const double *b,double w,double *rnorm2) {
+  double (*uu)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])*u;
+  double (*unew)[g->m[1]][g->m[2]] = (double(*)[g->m[1]][g->m[2]])*utmp;
+  const double (*bb)[g->m[1]][g->m[2]] = (const double(*)[g->m[1]][g->m[2]])b;
+  double h[] = {g->L[0]/(g->m[0]-1),g->L[1]/(g->m[1]-1),g->L[2]/(g->m[2]-1)};
+  double sum = 0;
+
+  #pragma omp parallel for reduction(+:sum)
+  for (int i=0; i<g->m[0]; i++) {
+    for (int j=0; j<g->m[1]; j++) {
+      for (int k=0; k<g->m[2]; k++) {
+        double diag = 2/Sqr(h[0]) + 2/Sqr(h[1]) + 2/Sqr(h[2]);
+        double residual;
+        if (GridInterior(g,i,j,k)) {
+          residual = diag * uu[i][j][k]
+            - (uu[i-1][j][k] + uu[i+1][j][k])/Sqr(h[0])
+            - (uu[i][j-1][k] + uu[i][j+1][k])/Sqr(h[1])
+            - (uu[i][j][k-1] + uu[i][j][k+1])/Sqr(h[2])
+            - bb[i][j][k];
+        } else {
+          diag = 1;
+          residual = uu[i][j][k] - bb[i][j][k];
+        }
+        unew[i][j][k] = uu[i][j][k] - (w/diag) * residual;
+        sum += residual*residual;
+      }
+    }
+  }
+  *rnorm2 = sqrt(sum);
+  *u = &unew[0][0][0];
+  *utmp = &uu[0][0][0];
+  return 0;
+}
+
 // Compute algebraic norm |u-v|_2 if v is non-NULL, otherwise |u|_2
 static int Norm(Grid g,const double *u,const double *v,double *norm2,double *normMax) {
   double sum = 0,max = 0;
@@ -123,11 +159,12 @@ int main(int argc, char *argv[])
 {
   Grid g = calloc(1,sizeof(*g));
   g->L[0] = g->L[1] = g->L[2] = 1.0;
-  double *u,*uexact,*b,w = 1.0,bnorm2,bnormMax,unorm2,unormMax,enorm2,enormMax;
+  double *u,*utmp,*uexact,*b,w = 1.0,bnorm2,bnormMax,unorm2,unormMax,enorm2,enormMax;
+  int (*smooth)(Grid,double**,double**,const double*,double,double*) = Jacobi_7pt;
   int err,opt,niterations = 10,verbose = 0;
   cycles_t *cyclelog;
 
-  while ((opt = getopt(argc,argv,"m:L:n:w:v")) != -1) {
+  while ((opt = getopt(argc,argv,"m:L:n:w:sv")) != -1) {
     switch (opt) {
     case 'm': { // Number of grid points
       const char *ptr = optarg;
@@ -161,6 +198,9 @@ int main(int argc, char *argv[])
     case 'w':
       w = strtod(optarg,NULL);
       break;
+    case 's':
+      smooth = SOR_7pt;
+      break;
     case 'v':
       verbose = 1;
       break;
@@ -175,6 +215,7 @@ int main(int argc, char *argv[])
   err = GridCreateVector(g,&u);CHK(err);
   err = GridCreateVector(g,&uexact);CHK(err);
   err = GridCreateVector(g,&b);CHK(err);
+  err = GridCreateVector(g,&utmp);CHK(err);
 
   err = SetupProblem(g,uexact,b);CHK(err);
 
@@ -186,7 +227,7 @@ int main(int argc, char *argv[])
   for (int i=0; i<niterations; i++) {
     double rnorm;
     cyclelog[i] = rdtsc();
-    err = Jacobi_7pt(g,u,b,w,&rnorm);CHK(err);
+    err = smooth(g,&u,&utmp,b,w,&rnorm);CHK(err);
     cyclelog[i] = rdtsc() - cyclelog[i];
     if (verbose) printf("Jacobi iteration % 3d  |r| %10.4e  |r|/|b| %10.4e\n",i,rnorm,rnorm/bnorm2);
   }
@@ -207,6 +248,7 @@ int main(int argc, char *argv[])
 
   free(cyclelog);
   free(u);
+  free(utmp);
   free(uexact);
   free(b);
   free(g);
