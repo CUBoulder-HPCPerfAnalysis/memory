@@ -1,0 +1,7 @@
+# username, machinename, CPU name, CPU GHz, CPU Cores, CPU Cores used, Private cache/core (MB), Shared cache (MB), Array Length (MB), Peak MB/s, Copy MB/s, Scale MB/s, Add MB/s, Triad MB/s, Dot MB/s
+engvall, Lukes Desktop,i5-4590,3.3,4,4,256,6,76.3,25600,15667.9,15692.5,23486,23339.5,16294.8
+engvall, Lukes Desktop,i5-4590,3.3,4,4,256,6,76.3,25600,16260.1,16306.8,24517.3,24393.2,15411.4
+engvall, Lukes Desktop,i5-4590,3.3,4,4,256,6,76.3,25600,15674.1,15675.6,23549.7,23099,15478.6
+engvall, Lukes Desktop,i5-4590,3.3,4,4,256,6,76.3,25600,16260.1,16184.5,24336,23083.7,15473.9
+engvall, Lukes Desktop,i5-4590,3.3,4,4,256,6,76.3,25600,15481.4,15495,23112.8,23061.5,15404
+engvall, Lukes Desktop,i5-4590,3.3,4,4,256,6,76.3,25600,16225.5,15.495,23050,22993,922.8
