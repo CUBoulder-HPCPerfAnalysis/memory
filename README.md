@@ -158,6 +158,43 @@ Plan to present these results (~5 minutes each) next class period (Wednesday, 20
   * [Intel VTune](https://software.intel.com/en-us/intel-vtune-amplifier-xe/)
   * Sun Studio used to be freely distributed and include a profiler.
 
+### Day 5: 2015-01-28
+
+#### 0. Discussion
+
+* Divisions not hoisted out of loop
+* Can streamline conditionals
+* Use attributes for fine-grained control of inlining
+* Used Perf to check assembly
+
+#### 1. How to optimize further
+
+* Performance model is not in the ballpark for memory bandwidth
+* Only smaller problem sizes can benefit much
+* Vectorization should be able to speed up small sizes
+
+### Day 6: 2015-02-02
+
+#### 0. Experiments with stencils
+
+#### 1. Performance models
+
+* Express resource constraints as a linear program
+* Start with floating point and memory bandwidth, related by arithmetic intensity
+* Multiple phases
+* Amdahl's Law
+
+#### 2. Intro to iterative solvers
+
+* (At least) two phases: matrix application and orthogonalization
+* Preconditioning
+* Scalability of local methods
+
+#### 3. PETSc and Janus
+
+* Install locally (if convenient). http://mcs.anl.gov/petsc
+* Request an account and OTP device. https://rc.colorado.edu/support/userguide/accountrequest
+
 ## References
 
 * [STREAM Benchmark](http://www.cs.virginia.edu/stream/)
