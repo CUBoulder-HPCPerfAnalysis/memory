@@ -1,0 +1,1080 @@
+m 16,16,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.7731e-03  |u|_max 9.6276e-01
+Jacobi iteration   0  |r| 1.1817e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 8.9224e-01  |e|_max/|u|_max 9.1641e-01
+Cycles/DOF: best 5.2315e+01  worst 5.2315e+01  avg 5.2315e+01
+m 16,16,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2752e-03  |u|_max 9.8421e-01
+Jacobi iteration   0  |r| 1.7429e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.4741e-01  |e|_max/|u|_max 9.5555e-01
+Cycles/DOF: best 2.2456e+01  worst 2.2456e+01  avg 2.2456e+01
+m 16,16,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 9.0899e-04  |u|_max 9.8415e-01
+Jacobi iteration   0  |r| 2.5113e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8308e-01  |e|_max/|u|_max 9.8635e-01
+Cycles/DOF: best 1.5609e+01  worst 1.5609e+01  avg 1.5609e+01
+m 16,16,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.4530e-04  |u|_max 9.8508e-01
+Jacobi iteration   0  |r| 3.5831e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9548e-01  |e|_max/|u|_max 9.9626e-01
+Cycles/DOF: best 8.5814e+00  worst 8.5814e+00  avg 8.5814e+00
+m 16,16,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.5719e-04  |u|_max 9.8520e-01
+Jacobi iteration   0  |r| 5.0892e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 7.2912e+00  worst 7.2912e+00  avg 7.2912e+00
+m 16,16,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2360e-04  |u|_max 9.8521e-01
+Jacobi iteration   0  |r| 7.2126e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9977e-01
+Cycles/DOF: best 5.3899e+00  worst 5.3899e+00  avg 5.3899e+00
+m 16,32,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2752e-03  |u|_max 9.8421e-01
+Jacobi iteration   0  |r| 1.7429e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.4741e-01  |e|_max/|u|_max 9.5555e-01
+Cycles/DOF: best 2.2083e+01  worst 2.2083e+01  avg 2.2083e+01
+m 16,32,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 9.1714e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 2.5678e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.6491e-01  |e|_max/|u|_max 9.6786e-01
+Cycles/DOF: best 1.8870e+01  worst 1.8870e+01  avg 1.8870e+01
+m 16,32,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.5374e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 3.6982e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8530e-01  |e|_max/|u|_max 9.8708e-01
+Cycles/DOF: best 1.0949e+01  worst 1.0949e+01  avg 1.0949e+01
+m 16,32,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6410e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 5.2755e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9561e-01  |e|_max/|u|_max 9.9606e-01
+Cycles/DOF: best 6.8310e+00  worst 6.8310e+00  avg 6.8310e+00
+m 16,32,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2881e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 7.4921e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 5.5273e+00  worst 5.5273e+00  avg 5.5273e+00
+m 16,32,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3273e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 1.0617e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 5.7807e+00  worst 5.7807e+00  avg 5.7807e+00
+m 16,64,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 9.0899e-04  |u|_max 9.8415e-01
+Jacobi iteration   0  |r| 2.5113e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8308e-01  |e|_max/|u|_max 9.8635e-01
+Cycles/DOF: best 1.3646e+01  worst 1.3646e+01  avg 1.3646e+01
+m 16,64,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.5374e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 3.6982e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8530e-01  |e|_max/|u|_max 9.8708e-01
+Cycles/DOF: best 8.6422e+00  worst 8.6422e+00  avg 8.6422e+00
+m 16,64,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6599e-04  |u|_max 1.0060e+00
+Jacobi iteration   0  |r| 5.3252e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9068e-01  |e|_max/|u|_max 9.9214e-01
+Cycles/DOF: best 7.6825e+00  worst 7.6825e+00  avg 7.6825e+00
+m 16,64,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3081e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 7.5957e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9625e-01  |e|_max/|u|_max 9.9676e-01
+Cycles/DOF: best 6.2373e+00  worst 6.2373e+00  avg 6.2373e+00
+m 16,64,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3438e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.0787e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 8.1568e+00  worst 8.1568e+00  avg 8.1568e+00
+m 16,64,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6589e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.5286e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 6.5407e+00  worst 6.5407e+00  avg 6.5407e+00
+m 16,128,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.4530e-04  |u|_max 9.8508e-01
+Jacobi iteration   0  |r| 3.5831e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9548e-01  |e|_max/|u|_max 9.9626e-01
+Cycles/DOF: best 1.0678e+01  worst 1.0678e+01  avg 1.0678e+01
+m 16,128,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6410e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 5.2755e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9561e-01  |e|_max/|u|_max 9.9606e-01
+Cycles/DOF: best 9.7775e+00  worst 9.7775e+00  avg 9.7775e+00
+m 16,128,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3081e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 7.5957e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9625e-01  |e|_max/|u|_max 9.9676e-01
+Cycles/DOF: best 5.4826e+00  worst 5.4826e+00  avg 5.4826e+00
+m 16,128,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3485e-04  |u|_max 1.0079e+00
+Jacobi iteration   0  |r| 1.0834e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9765e-01  |e|_max/|u|_max 9.9792e-01
+Cycles/DOF: best 5.5470e+00  worst 5.5470e+00  avg 5.5470e+00
+m 16,128,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6639e-04  |u|_max 1.0080e+00
+Jacobi iteration   0  |r| 1.5385e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9918e-01
+Cycles/DOF: best 6.2257e+00  worst 6.2257e+00  avg 6.2257e+00
+m 16,128,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1777e-04  |u|_max 1.0081e+00
+Jacobi iteration   0  |r| 2.1802e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9976e-01
+Cycles/DOF: best 7.2941e+00  worst 7.2941e+00  avg 7.2941e+00
+m 16,256,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.5719e-04  |u|_max 9.8520e-01
+Jacobi iteration   0  |r| 5.0892e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 8.0551e+00  worst 8.0551e+00  avg 8.0551e+00
+m 16,256,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2881e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 7.4921e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 7.9396e+00  worst 7.9396e+00  avg 7.9396e+00
+m 16,256,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3438e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.0787e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 5.9259e+00  worst 5.9259e+00  avg 5.9259e+00
+m 16,256,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6639e-04  |u|_max 1.0080e+00
+Jacobi iteration   0  |r| 1.5385e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9918e-01
+Cycles/DOF: best 5.7782e+00  worst 5.7782e+00  avg 5.7782e+00
+m 16,256,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1789e-04  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 2.1848e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9941e-01  |e|_max/|u|_max 9.9949e-01
+Cycles/DOF: best 5.1873e+00  worst 5.1873e+00  avg 5.1873e+00
+m 16,256,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.3440e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 3.0961e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9980e-01
+Cycles/DOF: best 5.2364e+00  worst 5.2364e+00  avg 5.2364e+00
+m 16,512,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2360e-04  |u|_max 9.8521e-01
+Jacobi iteration   0  |r| 7.2126e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9977e-01
+Cycles/DOF: best 7.3914e+00  worst 7.3914e+00  avg 7.3914e+00
+m 16,512,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3273e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 1.0617e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 5.9785e+00  worst 5.9785e+00  avg 5.9785e+00
+m 16,512,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6589e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.5286e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.9183e+00  worst 5.9183e+00  avg 5.9183e+00
+m 16,512,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1777e-04  |u|_max 1.0081e+00
+Jacobi iteration   0  |r| 2.1802e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9976e-01
+Cycles/DOF: best 7.0965e+00  worst 7.0965e+00  avg 7.0965e+00
+m 16,512,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.3440e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 3.0961e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9980e-01
+Cycles/DOF: best 5.1310e+00  worst 5.1310e+00  avg 5.1310e+00
+m 16,512,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 5.9059e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 4.3874e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 4.9776e+00  worst 4.9776e+00  avg 4.9776e+00
+m 32,16,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2752e-03  |u|_max 9.8421e-01
+Jacobi iteration   0  |r| 1.7429e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.4741e-01  |e|_max/|u|_max 9.5555e-01
+Cycles/DOF: best 4.2652e+01  worst 4.2652e+01  avg 4.2652e+01
+m 32,16,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 9.1714e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 2.5678e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.6491e-01  |e|_max/|u|_max 9.6786e-01
+Cycles/DOF: best 2.1584e+01  worst 2.1584e+01  avg 2.1584e+01
+m 32,16,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.5374e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 3.6982e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8530e-01  |e|_max/|u|_max 9.8708e-01
+Cycles/DOF: best 1.0275e+01  worst 1.0275e+01  avg 1.0275e+01
+m 32,16,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6410e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 5.2755e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9561e-01  |e|_max/|u|_max 9.9606e-01
+Cycles/DOF: best 7.9544e+00  worst 7.9544e+00  avg 7.9544e+00
+m 32,16,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2881e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 7.4921e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 6.5549e+00  worst 6.5549e+00  avg 6.5549e+00
+m 32,16,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3273e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 1.0617e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 6.4619e+00  worst 6.4619e+00  avg 6.4619e+00
+m 32,32,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 9.1714e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 2.5678e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.6491e-01  |e|_max/|u|_max 9.6786e-01
+Cycles/DOF: best 1.5590e+01  worst 1.5590e+01  avg 1.5590e+01
+m 32,32,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.5961e-04  |u|_max 1.0285e+00
+Jacobi iteration   0  |r| 3.7795e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.7350e-01  |e|_max/|u|_max 9.7388e-01
+Cycles/DOF: best 9.4161e+00  worst 9.4161e+00  avg 9.4161e+00
+m 32,32,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.7017e-04  |u|_max 1.0285e+00
+Jacobi iteration   0  |r| 5.4410e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8697e-01  |e|_max/|u|_max 9.8763e-01
+Cycles/DOF: best 7.9120e+00  worst 7.9120e+00  avg 7.9120e+00
+m 32,32,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3378e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 7.7600e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9574e-01  |e|_max/|u|_max 9.9587e-01
+Cycles/DOF: best 7.4183e+00  worst 7.4183e+00  avg 7.4183e+00
+m 32,32,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3648e-04  |u|_max 1.0296e+00
+Jacobi iteration   0  |r| 1.1020e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9890e-01
+Cycles/DOF: best 6.2055e+00  worst 6.2055e+00  avg 6.2055e+00
+m 32,32,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6738e-04  |u|_max 1.0296e+00
+Jacobi iteration   0  |r| 1.5616e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9972e-01
+Cycles/DOF: best 6.2850e+00  worst 6.2850e+00  avg 6.2850e+00
+m 32,64,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.5374e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 3.6982e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8530e-01  |e|_max/|u|_max 9.8708e-01
+Cycles/DOF: best 1.0621e+01  worst 1.0621e+01  avg 1.0621e+01
+m 32,64,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.7017e-04  |u|_max 1.0285e+00
+Jacobi iteration   0  |r| 5.4410e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8697e-01  |e|_max/|u|_max 9.8763e-01
+Cycles/DOF: best 7.9117e+00  worst 7.9117e+00  avg 7.9117e+00
+m 32,64,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3514e-04  |u|_max 1.0284e+00
+Jacobi iteration   0  |r| 7.8316e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9134e-01  |e|_max/|u|_max 9.9208e-01
+Cycles/DOF: best 6.3753e+00  worst 6.3753e+00  avg 6.3753e+00
+m 32,64,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3792e-04  |u|_max 1.0294e+00
+Jacobi iteration   0  |r| 1.1169e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9633e-01  |e|_max/|u|_max 9.9658e-01
+Cycles/DOF: best 5.4047e+00  worst 5.4047e+00  avg 5.4047e+00
+m 32,64,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6857e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 1.5859e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 5.2917e+00  worst 5.2917e+00  avg 5.2917e+00
+m 32,64,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1931e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2473e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9973e-01
+Cycles/DOF: best 5.1744e+00  worst 5.1744e+00  avg 5.1744e+00
+m 32,128,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6410e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 5.2755e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9561e-01  |e|_max/|u|_max 9.9606e-01
+Cycles/DOF: best 1.0440e+01  worst 1.0440e+01  avg 1.0440e+01
+m 32,128,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3378e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 7.7600e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9574e-01  |e|_max/|u|_max 9.9587e-01
+Cycles/DOF: best 7.0708e+00  worst 7.0708e+00  avg 7.0708e+00
+m 32,128,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3792e-04  |u|_max 1.0294e+00
+Jacobi iteration   0  |r| 1.1169e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9633e-01  |e|_max/|u|_max 9.9658e-01
+Cycles/DOF: best 5.5202e+00  worst 5.5202e+00  avg 5.5202e+00
+m 32,128,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6890e-04  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 1.5927e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9767e-01  |e|_max/|u|_max 9.9778e-01
+Cycles/DOF: best 5.7149e+00  worst 5.7149e+00  avg 5.7149e+00
+m 32,128,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1967e-04  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 2.2615e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9911e-01
+Cycles/DOF: best 5.4215e+00  worst 5.4215e+00  avg 5.4215e+00
+m 32,128,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4700e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 3.2047e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 6.7367e+00  worst 6.7367e+00  avg 6.7367e+00
+m 32,256,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2881e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 7.4921e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 6.7261e+00  worst 6.7261e+00  avg 6.7261e+00
+m 32,256,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3648e-04  |u|_max 1.0296e+00
+Jacobi iteration   0  |r| 1.1020e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9890e-01
+Cycles/DOF: best 5.5772e+00  worst 5.5772e+00  avg 5.5772e+00
+m 32,256,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6857e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 1.5859e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 5.6132e+00  worst 5.6132e+00  avg 5.6132e+00
+m 32,256,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1967e-04  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 2.2615e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9911e-01
+Cycles/DOF: best 5.3709e+00  worst 5.3709e+00  avg 5.3709e+00
+m 32,256,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4783e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 3.2112e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9941e-01  |e|_max/|u|_max 9.9945e-01
+Cycles/DOF: best 5.1980e+00  worst 5.1980e+00  avg 5.1980e+00
+m 32,256,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0010e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.5505e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9976e-01  |e|_max/|u|_max 9.9978e-01
+Cycles/DOF: best 5.8094e+00  worst 5.8094e+00  avg 5.8094e+00
+m 32,512,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3273e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 1.0617e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 7.5434e+00  worst 7.5434e+00  avg 7.5434e+00
+m 32,512,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6738e-04  |u|_max 1.0296e+00
+Jacobi iteration   0  |r| 1.5616e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9972e-01
+Cycles/DOF: best 6.3945e+00  worst 6.3945e+00  avg 6.3945e+00
+m 32,512,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1931e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2473e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9973e-01
+Cycles/DOF: best 5.5760e+00  worst 5.5760e+00  avg 5.5760e+00
+m 32,512,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4700e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 3.2047e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 5.3352e+00  worst 5.3352e+00  avg 5.3352e+00
+m 32,512,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0010e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.5505e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9976e-01  |e|_max/|u|_max 9.9978e-01
+Cycles/DOF: best 5.5994e+00  worst 5.5994e+00  avg 5.5994e+00
+m 32,512,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2475e-05  |u|_max 1.0307e+00
+Jacobi iteration   0  |r| 6.4482e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9986e-01
+Cycles/DOF: best 5.7463e+00  worst 5.7463e+00  avg 5.7463e+00
+m 64,16,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 9.0899e-04  |u|_max 9.8415e-01
+Jacobi iteration   0  |r| 2.5113e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8308e-01  |e|_max/|u|_max 9.8635e-01
+Cycles/DOF: best 2.2941e+01  worst 2.2941e+01  avg 2.2941e+01
+m 64,16,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.5374e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 3.6982e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8530e-01  |e|_max/|u|_max 9.8708e-01
+Cycles/DOF: best 1.1671e+01  worst 1.1671e+01  avg 1.1671e+01
+m 64,16,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6599e-04  |u|_max 1.0060e+00
+Jacobi iteration   0  |r| 5.3252e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9068e-01  |e|_max/|u|_max 9.9214e-01
+Cycles/DOF: best 5.9912e+00  worst 5.9912e+00  avg 5.9912e+00
+m 64,16,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3081e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 7.5957e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9625e-01  |e|_max/|u|_max 9.9676e-01
+Cycles/DOF: best 6.4984e+00  worst 6.4984e+00  avg 6.4984e+00
+m 64,16,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3438e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.0787e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 5.5932e+00  worst 5.5932e+00  avg 5.5932e+00
+m 64,16,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6589e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.5286e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.4001e+00  worst 5.4001e+00  avg 5.4001e+00
+m 64,32,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.5374e-04  |u|_max 1.0061e+00
+Jacobi iteration   0  |r| 3.6982e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8530e-01  |e|_max/|u|_max 9.8708e-01
+Cycles/DOF: best 1.2870e+01  worst 1.2870e+01  avg 1.2870e+01
+m 64,32,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.7017e-04  |u|_max 1.0285e+00
+Jacobi iteration   0  |r| 5.4410e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.8697e-01  |e|_max/|u|_max 9.8763e-01
+Cycles/DOF: best 8.3700e+00  worst 8.3700e+00  avg 8.3700e+00
+m 64,32,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3514e-04  |u|_max 1.0284e+00
+Jacobi iteration   0  |r| 7.8316e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9134e-01  |e|_max/|u|_max 9.9208e-01
+Cycles/DOF: best 6.6149e+00  worst 6.6149e+00  avg 6.6149e+00
+m 64,32,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3792e-04  |u|_max 1.0294e+00
+Jacobi iteration   0  |r| 1.1169e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9633e-01  |e|_max/|u|_max 9.9658e-01
+Cycles/DOF: best 5.5411e+00  worst 5.5411e+00  avg 5.5411e+00
+m 64,32,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6857e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 1.5859e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 5.6443e+00  worst 5.6443e+00  avg 5.6443e+00
+m 64,32,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1931e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2473e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9973e-01
+Cycles/DOF: best 6.5533e+00  worst 6.5533e+00  avg 6.5533e+00
+m 64,64,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6599e-04  |u|_max 1.0060e+00
+Jacobi iteration   0  |r| 5.3252e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9068e-01  |e|_max/|u|_max 9.9214e-01
+Cycles/DOF: best 8.7186e+00  worst 8.7186e+00  avg 8.7186e+00
+m 64,64,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3514e-04  |u|_max 1.0284e+00
+Jacobi iteration   0  |r| 7.8316e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9134e-01  |e|_max/|u|_max 9.9208e-01
+Cycles/DOF: best 8.3804e+00  worst 8.3804e+00  avg 8.3804e+00
+m 64,64,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3889e-04  |u|_max 1.0284e+00
+Jacobi iteration   0  |r| 1.1271e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9351e-01  |e|_max/|u|_max 9.9428e-01
+Cycles/DOF: best 5.9740e+00  worst 5.9740e+00  avg 5.9740e+00
+m 64,64,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6959e-04  |u|_max 1.0293e+00
+Jacobi iteration   0  |r| 1.6072e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9678e-01  |e|_max/|u|_max 9.9710e-01
+Cycles/DOF: best 6.4505e+00  worst 6.4505e+00  avg 6.4505e+00
+m 64,64,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2016e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2820e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9894e-01  |e|_max/|u|_max 9.9905e-01
+Cycles/DOF: best 6.4417e+00  worst 6.4417e+00  avg 6.4417e+00
+m 64,64,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5046e-05  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 3.2337e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 5.3046e+00  worst 5.3046e+00  avg 5.3046e+00
+m 64,128,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3081e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 7.5957e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9625e-01  |e|_max/|u|_max 9.9676e-01
+Cycles/DOF: best 1.0781e+01  worst 1.0781e+01  avg 1.0781e+01
+m 64,128,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3792e-04  |u|_max 1.0294e+00
+Jacobi iteration   0  |r| 1.1169e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9633e-01  |e|_max/|u|_max 9.9658e-01
+Cycles/DOF: best 7.5200e+00  worst 7.5200e+00  avg 7.5200e+00
+m 64,128,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6959e-04  |u|_max 1.0293e+00
+Jacobi iteration   0  |r| 1.6072e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9678e-01  |e|_max/|u|_max 9.9710e-01
+Cycles/DOF: best 6.8348e+00  worst 6.8348e+00  avg 6.8348e+00
+m 64,128,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2039e-04  |u|_max 1.0303e+00
+Jacobi iteration   0  |r| 2.2917e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9786e-01  |e|_max/|u|_max 9.9803e-01
+Cycles/DOF: best 5.3801e+00  worst 5.3801e+00  avg 5.3801e+00
+m 64,128,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5299e-05  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 3.2540e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9909e-01  |e|_max/|u|_max 9.9917e-01
+Cycles/DOF: best 5.2791e+00  worst 5.2791e+00  avg 5.2791e+00
+m 64,128,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0375e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 4.6109e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.4114e+00  worst 5.4114e+00  avg 5.4114e+00
+m 64,256,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3438e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.0787e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 6.5445e+00  worst 6.5445e+00  avg 6.5445e+00
+m 64,256,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6857e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 1.5859e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 6.5067e+00  worst 6.5067e+00  avg 6.5067e+00
+m 64,256,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2016e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2820e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9894e-01  |e|_max/|u|_max 9.9905e-01
+Cycles/DOF: best 5.4770e+00  worst 5.4770e+00  avg 5.4770e+00
+m 64,256,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5299e-05  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 3.2540e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9909e-01  |e|_max/|u|_max 9.9917e-01
+Cycles/DOF: best 5.3920e+00  worst 5.3920e+00  avg 5.3920e+00
+m 64,256,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0434e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.6203e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9942e-01  |e|_max/|u|_max 9.9948e-01
+Cycles/DOF: best 6.0005e+00  worst 6.0005e+00  avg 6.0005e+00
+m 64,256,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2775e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 6.5470e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 5.3586e+00  worst 5.3586e+00  avg 5.3586e+00
+m 64,512,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6589e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.5286e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 8.7553e+00  worst 8.7553e+00  avg 8.7553e+00
+m 64,512,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1931e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2473e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9973e-01
+Cycles/DOF: best 5.7808e+00  worst 5.7808e+00  avg 5.7808e+00
+m 64,512,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5046e-05  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 3.2337e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 5.3001e+00  worst 5.3001e+00  avg 5.3001e+00
+m 64,512,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0375e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 4.6109e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.3964e+00  worst 5.3964e+00  avg 5.3964e+00
+m 64,512,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2775e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 6.5470e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 5.4584e+00  worst 5.4584e+00  avg 5.4584e+00
+m 64,512,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0276e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 9.2772e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 5.4451e+00  worst 5.4451e+00  avg 5.4451e+00
+m 128,16,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.4530e-04  |u|_max 9.8508e-01
+Jacobi iteration   0  |r| 3.5831e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9548e-01  |e|_max/|u|_max 9.9626e-01
+Cycles/DOF: best 1.2595e+01  worst 1.2595e+01  avg 1.2595e+01
+m 128,16,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6410e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 5.2755e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9561e-01  |e|_max/|u|_max 9.9606e-01
+Cycles/DOF: best 7.1087e+00  worst 7.1087e+00  avg 7.1087e+00
+m 128,16,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3081e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 7.5957e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9625e-01  |e|_max/|u|_max 9.9676e-01
+Cycles/DOF: best 5.8134e+00  worst 5.8134e+00  avg 5.8134e+00
+m 128,16,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3485e-04  |u|_max 1.0079e+00
+Jacobi iteration   0  |r| 1.0834e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9765e-01  |e|_max/|u|_max 9.9792e-01
+Cycles/DOF: best 5.5210e+00  worst 5.5210e+00  avg 5.5210e+00
+m 128,16,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6639e-04  |u|_max 1.0080e+00
+Jacobi iteration   0  |r| 1.5385e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9918e-01
+Cycles/DOF: best 5.2083e+00  worst 5.2083e+00  avg 5.2083e+00
+m 128,16,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1777e-04  |u|_max 1.0081e+00
+Jacobi iteration   0  |r| 2.1802e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9976e-01
+Cycles/DOF: best 5.2874e+00  worst 5.2874e+00  avg 5.2874e+00
+m 128,32,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.6410e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 5.2755e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9561e-01  |e|_max/|u|_max 9.9606e-01
+Cycles/DOF: best 1.0382e+01  worst 1.0382e+01  avg 1.0382e+01
+m 128,32,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3378e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 7.7600e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9574e-01  |e|_max/|u|_max 9.9587e-01
+Cycles/DOF: best 7.1821e+00  worst 7.1821e+00  avg 7.1821e+00
+m 128,32,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3792e-04  |u|_max 1.0294e+00
+Jacobi iteration   0  |r| 1.1169e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9633e-01  |e|_max/|u|_max 9.9658e-01
+Cycles/DOF: best 5.6877e+00  worst 5.6877e+00  avg 5.6877e+00
+m 128,32,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6890e-04  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 1.5927e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9767e-01  |e|_max/|u|_max 9.9778e-01
+Cycles/DOF: best 5.6465e+00  worst 5.6465e+00  avg 5.6465e+00
+m 128,32,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1967e-04  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 2.2615e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9911e-01
+Cycles/DOF: best 5.5882e+00  worst 5.5882e+00  avg 5.5882e+00
+m 128,32,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4700e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 3.2047e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 6.1645e+00  worst 6.1645e+00  avg 6.1645e+00
+m 128,64,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.3081e-04  |u|_max 1.0070e+00
+Jacobi iteration   0  |r| 7.5957e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9625e-01  |e|_max/|u|_max 9.9676e-01
+Cycles/DOF: best 7.4337e+00  worst 7.4337e+00  avg 7.4337e+00
+m 128,64,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3792e-04  |u|_max 1.0294e+00
+Jacobi iteration   0  |r| 1.1169e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9633e-01  |e|_max/|u|_max 9.9658e-01
+Cycles/DOF: best 7.8652e+00  worst 7.8652e+00  avg 7.8652e+00
+m 128,64,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6959e-04  |u|_max 1.0293e+00
+Jacobi iteration   0  |r| 1.6072e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9678e-01  |e|_max/|u|_max 9.9710e-01
+Cycles/DOF: best 8.1119e+00  worst 8.1119e+00  avg 8.1119e+00
+m 128,64,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2039e-04  |u|_max 1.0303e+00
+Jacobi iteration   0  |r| 2.2917e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9786e-01  |e|_max/|u|_max 9.9803e-01
+Cycles/DOF: best 5.6509e+00  worst 5.6509e+00  avg 5.6509e+00
+m 128,64,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5299e-05  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 3.2540e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9909e-01  |e|_max/|u|_max 9.9917e-01
+Cycles/DOF: best 5.2458e+00  worst 5.2458e+00  avg 5.2458e+00
+m 128,64,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0375e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 4.6109e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.5822e+00  worst 5.5822e+00  avg 5.5822e+00
+m 128,128,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3485e-04  |u|_max 1.0079e+00
+Jacobi iteration   0  |r| 1.0834e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9765e-01  |e|_max/|u|_max 9.9792e-01
+Cycles/DOF: best 8.6781e+00  worst 8.6781e+00  avg 8.6781e+00
+m 128,128,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6890e-04  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 1.5927e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9767e-01  |e|_max/|u|_max 9.9778e-01
+Cycles/DOF: best 8.2166e+00  worst 8.2166e+00  avg 8.2166e+00
+m 128,128,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2039e-04  |u|_max 1.0303e+00
+Jacobi iteration   0  |r| 2.2917e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9786e-01  |e|_max/|u|_max 9.9803e-01
+Cycles/DOF: best 5.7552e+00  worst 5.7552e+00  avg 5.7552e+00
+m 128,128,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5469e-05  |u|_max 1.0313e+00
+Jacobi iteration   0  |r| 3.2676e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9840e-01  |e|_max/|u|_max 9.9849e-01
+Cycles/DOF: best 5.9333e+00  worst 5.9333e+00  avg 5.9333e+00
+m 128,128,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0555e-05  |u|_max 1.0314e+00
+Jacobi iteration   0  |r| 4.6396e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9920e-01  |e|_max/|u|_max 9.9926e-01
+Cycles/DOF: best 5.3198e+00  worst 5.3198e+00  avg 5.3198e+00
+m 128,128,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2861e-05  |u|_max 1.0314e+00
+Jacobi iteration   0  |r| 6.5744e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9974e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.4504e+00  worst 5.4504e+00  avg 5.4504e+00
+m 128,256,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6639e-04  |u|_max 1.0080e+00
+Jacobi iteration   0  |r| 1.5385e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9918e-01
+Cycles/DOF: best 6.1630e+00  worst 6.1630e+00  avg 6.1630e+00
+m 128,256,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1967e-04  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 2.2615e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9911e-01
+Cycles/DOF: best 7.3782e+00  worst 7.3782e+00  avg 7.3782e+00
+m 128,256,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5299e-05  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 3.2540e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9909e-01  |e|_max/|u|_max 9.9917e-01
+Cycles/DOF: best 5.5357e+00  worst 5.5357e+00  avg 5.5357e+00
+m 128,256,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0555e-05  |u|_max 1.0314e+00
+Jacobi iteration   0  |r| 4.6396e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9920e-01  |e|_max/|u|_max 9.9926e-01
+Cycles/DOF: best 5.4900e+00  worst 5.4900e+00  avg 5.4900e+00
+m 128,256,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2903e-05  |u|_max 1.0315e+00
+Jacobi iteration   0  |r| 6.5877e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9947e-01  |e|_max/|u|_max 9.9951e-01
+Cycles/DOF: best 6.1912e+00  worst 6.1912e+00  avg 6.1912e+00
+m 128,256,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0367e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 9.3347e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 5.8759e+00  worst 5.8759e+00  avg 5.8759e+00
+m 128,512,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1777e-04  |u|_max 1.0081e+00
+Jacobi iteration   0  |r| 2.1802e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9976e-01
+Cycles/DOF: best 7.0705e+00  worst 7.0705e+00  avg 7.0705e+00
+m 128,512,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4700e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 3.2047e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 5.8024e+00  worst 5.8024e+00  avg 5.8024e+00
+m 128,512,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0375e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 4.6109e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.7097e+00  worst 5.7097e+00  avg 5.7097e+00
+m 128,512,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2861e-05  |u|_max 1.0314e+00
+Jacobi iteration   0  |r| 6.5744e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9974e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.5734e+00  worst 5.5734e+00  avg 5.5734e+00
+m 128,512,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0367e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 9.3347e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 5.5344e+00  worst 5.5344e+00  avg 5.5344e+00
+m 128,512,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.1494e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 1.3227e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9986e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 5.6030e+00  worst 5.6030e+00  avg 5.6030e+00
+m 256,16,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.5719e-04  |u|_max 9.8520e-01
+Jacobi iteration   0  |r| 5.0892e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 7.4298e+00  worst 7.4298e+00  avg 7.4298e+00
+m 256,16,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2881e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 7.4921e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 6.3285e+00  worst 6.3285e+00  avg 6.3285e+00
+m 256,16,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3438e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.0787e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 5.7936e+00  worst 5.7936e+00  avg 5.7936e+00
+m 256,16,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6639e-04  |u|_max 1.0080e+00
+Jacobi iteration   0  |r| 1.5385e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9918e-01
+Cycles/DOF: best 5.4118e+00  worst 5.4118e+00  avg 5.4118e+00
+m 256,16,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1789e-04  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 2.1848e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9941e-01  |e|_max/|u|_max 9.9949e-01
+Cycles/DOF: best 5.2738e+00  worst 5.2738e+00  avg 5.2738e+00
+m 256,16,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.3440e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 3.0961e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9980e-01
+Cycles/DOF: best 5.0907e+00  worst 5.0907e+00  avg 5.0907e+00
+m 256,32,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2881e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 7.4921e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 6.4749e+00  worst 6.4749e+00  avg 6.4749e+00
+m 256,32,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3648e-04  |u|_max 1.0296e+00
+Jacobi iteration   0  |r| 1.1020e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9885e-01  |e|_max/|u|_max 9.9890e-01
+Cycles/DOF: best 7.5098e+00  worst 7.5098e+00  avg 7.5098e+00
+m 256,32,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6857e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 1.5859e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 8.0633e+00  worst 8.0633e+00  avg 8.0633e+00
+m 256,32,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1967e-04  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 2.2615e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9911e-01
+Cycles/DOF: best 6.1813e+00  worst 6.1813e+00  avg 6.1813e+00
+m 256,32,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4783e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 3.2112e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9941e-01  |e|_max/|u|_max 9.9945e-01
+Cycles/DOF: best 6.1292e+00  worst 6.1292e+00  avg 6.1292e+00
+m 256,32,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0010e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.5505e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9976e-01  |e|_max/|u|_max 9.9978e-01
+Cycles/DOF: best 5.2335e+00  worst 5.2335e+00  avg 5.2335e+00
+m 256,64,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3438e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.0787e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9906e-01
+Cycles/DOF: best 9.0141e+00  worst 9.0141e+00  avg 9.0141e+00
+m 256,64,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6857e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 1.5859e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9890e-01  |e|_max/|u|_max 9.9898e-01
+Cycles/DOF: best 8.3728e+00  worst 8.3728e+00  avg 8.3728e+00
+m 256,64,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.2016e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2820e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9894e-01  |e|_max/|u|_max 9.9905e-01
+Cycles/DOF: best 6.1600e+00  worst 6.1600e+00  avg 6.1600e+00
+m 256,64,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5299e-05  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 3.2540e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9909e-01  |e|_max/|u|_max 9.9917e-01
+Cycles/DOF: best 6.7644e+00  worst 6.7644e+00  avg 6.7644e+00
+m 256,64,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0434e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.6203e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9942e-01  |e|_max/|u|_max 9.9948e-01
+Cycles/DOF: best 5.2640e+00  worst 5.2640e+00  avg 5.2640e+00
+m 256,64,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2775e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 6.5470e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 5.7340e+00  worst 5.7340e+00  avg 5.7340e+00
+m 256,128,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6639e-04  |u|_max 1.0080e+00
+Jacobi iteration   0  |r| 1.5385e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9918e-01
+Cycles/DOF: best 5.9221e+00  worst 5.9221e+00  avg 5.9221e+00
+m 256,128,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1967e-04  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 2.2615e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9906e-01  |e|_max/|u|_max 9.9911e-01
+Cycles/DOF: best 8.8787e+00  worst 8.8787e+00  avg 8.8787e+00
+m 256,128,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5299e-05  |u|_max 1.0304e+00
+Jacobi iteration   0  |r| 3.2540e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9909e-01  |e|_max/|u|_max 9.9917e-01
+Cycles/DOF: best 5.7738e+00  worst 5.7738e+00  avg 5.7738e+00
+m 256,128,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0555e-05  |u|_max 1.0314e+00
+Jacobi iteration   0  |r| 4.6396e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9920e-01  |e|_max/|u|_max 9.9926e-01
+Cycles/DOF: best 6.0570e+00  worst 6.0570e+00  avg 6.0570e+00
+m 256,128,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2903e-05  |u|_max 1.0315e+00
+Jacobi iteration   0  |r| 6.5877e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9947e-01  |e|_max/|u|_max 9.9951e-01
+Cycles/DOF: best 5.8157e+00  worst 5.8157e+00  avg 5.8157e+00
+m 256,128,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0367e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 9.3347e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 5.7542e+00  worst 5.7542e+00  avg 5.7542e+00
+m 256,256,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1789e-04  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 2.1848e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9941e-01  |e|_max/|u|_max 9.9949e-01
+Cycles/DOF: best 6.5579e+00  worst 6.5579e+00  avg 6.5579e+00
+m 256,256,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4783e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 3.2112e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9941e-01  |e|_max/|u|_max 9.9945e-01
+Cycles/DOF: best 6.2456e+00  worst 6.2456e+00  avg 6.2456e+00
+m 256,256,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0434e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.6203e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9942e-01  |e|_max/|u|_max 9.9948e-01
+Cycles/DOF: best 6.4347e+00  worst 6.4347e+00  avg 6.4347e+00
+m 256,256,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2903e-05  |u|_max 1.0315e+00
+Jacobi iteration   0  |r| 6.5877e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9947e-01  |e|_max/|u|_max 9.9951e-01
+Cycles/DOF: best 5.7771e+00  worst 5.7771e+00  avg 5.7771e+00
+m 256,256,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0397e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 9.3535e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9960e-01  |e|_max/|u|_max 9.9964e-01
+Cycles/DOF: best 5.8423e+00  worst 5.8423e+00  avg 5.8423e+00
+m 256,256,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.1515e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 1.3254e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9980e-01  |e|_max/|u|_max 9.9982e-01
+Cycles/DOF: best 5.4873e+00  worst 5.4873e+00  avg 5.4873e+00
+m 256,512,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.3440e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 3.0961e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9980e-01
+Cycles/DOF: best 9.1713e+00  worst 9.1713e+00  avg 9.1713e+00
+m 256,512,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0010e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.5505e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9976e-01  |e|_max/|u|_max 9.9978e-01
+Cycles/DOF: best 8.4606e+00  worst 8.4606e+00  avg 8.4606e+00
+m 256,512,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2775e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 6.5470e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 6.3899e+00  worst 6.3899e+00  avg 6.3899e+00
+m 256,512,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0367e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 9.3347e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 6.2245e+00  worst 6.2245e+00  avg 6.2245e+00
+m 256,512,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.1515e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 1.3254e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9980e-01  |e|_max/|u|_max 9.9982e-01
+Cycles/DOF: best 5.9768e+00  worst 5.9768e+00  avg 5.9768e+00
+m 256,512,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.5228e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 1.8781e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9987e-01  |e|_max/|u|_max 9.9988e-01
+Cycles/DOF: best 6.8127e+00  worst 6.8127e+00  avg 6.8127e+00
+m 512,16,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.2360e-04  |u|_max 9.8521e-01
+Jacobi iteration   0  |r| 7.2126e+03  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9977e-01
+Cycles/DOF: best 6.8927e+00  worst 6.8927e+00  avg 6.8927e+00
+m 512,16,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3273e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 1.0617e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 7.0210e+00  worst 7.0210e+00  avg 7.0210e+00
+m 512,16,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6589e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.5286e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 8.8286e+00  worst 8.8286e+00  avg 8.8286e+00
+m 512,16,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1777e-04  |u|_max 1.0081e+00
+Jacobi iteration   0  |r| 2.1802e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9976e-01
+Cycles/DOF: best 5.4448e+00  worst 5.4448e+00  avg 5.4448e+00
+m 512,16,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.3440e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 3.0961e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9980e-01
+Cycles/DOF: best 6.4785e+00  worst 6.4785e+00  avg 6.4785e+00
+m 512,16,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 5.9059e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 4.3874e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 5.9290e+00  worst 5.9290e+00  avg 5.9290e+00
+m 512,32,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.3273e-04  |u|_max 1.0072e+00
+Jacobi iteration   0  |r| 1.0617e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 6.1387e+00  worst 6.1387e+00  avg 6.1387e+00
+m 512,32,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6738e-04  |u|_max 1.0296e+00
+Jacobi iteration   0  |r| 1.5616e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9972e-01
+Cycles/DOF: best 8.5930e+00  worst 8.5930e+00  avg 8.5930e+00
+m 512,32,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1931e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2473e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9973e-01
+Cycles/DOF: best 5.7523e+00  worst 5.7523e+00  avg 5.7523e+00
+m 512,32,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4700e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 3.2047e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 6.6206e+00  worst 6.6206e+00  avg 6.6206e+00
+m 512,32,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0010e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.5505e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9976e-01  |e|_max/|u|_max 9.9978e-01
+Cycles/DOF: best 6.3646e+00  worst 6.3646e+00  avg 6.3646e+00
+m 512,32,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2475e-05  |u|_max 1.0307e+00
+Jacobi iteration   0  |r| 6.4482e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9986e-01
+Cycles/DOF: best 6.1519e+00  worst 6.1519e+00  avg 6.1519e+00
+m 512,64,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.6589e-04  |u|_max 1.0071e+00
+Jacobi iteration   0  |r| 1.5286e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 8.0244e+00  worst 8.0244e+00  avg 8.0244e+00
+m 512,64,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1931e-04  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 2.2473e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9973e-01
+Cycles/DOF: best 7.2625e+00  worst 7.2625e+00  avg 7.2625e+00
+m 512,64,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.5046e-05  |u|_max 1.0295e+00
+Jacobi iteration   0  |r| 3.2337e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9971e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 6.3571e+00  worst 6.3571e+00  avg 6.3571e+00
+m 512,64,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0375e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 4.6109e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 6.1486e+00  worst 6.1486e+00  avg 6.1486e+00
+m 512,64,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2775e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 6.5470e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 5.9829e+00  worst 5.9829e+00  avg 5.9829e+00
+m 512,64,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0276e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 9.2772e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 5.6999e+00  worst 5.6999e+00  avg 5.6999e+00
+m 512,128,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.1777e-04  |u|_max 1.0081e+00
+Jacobi iteration   0  |r| 2.1802e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9976e-01
+Cycles/DOF: best 6.2713e+00  worst 6.2713e+00  avg 6.2713e+00
+m 512,128,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.4700e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 3.2047e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9974e-01
+Cycles/DOF: best 6.3652e+00  worst 6.3652e+00  avg 6.3652e+00
+m 512,128,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0375e-05  |u|_max 1.0305e+00
+Jacobi iteration   0  |r| 4.6109e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9972e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.8886e+00  worst 5.8886e+00  avg 5.8886e+00
+m 512,128,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2861e-05  |u|_max 1.0314e+00
+Jacobi iteration   0  |r| 6.5744e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9974e-01  |e|_max/|u|_max 9.9975e-01
+Cycles/DOF: best 5.8284e+00  worst 5.8284e+00  avg 5.8284e+00
+m 512,128,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0367e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 9.3347e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 6.3673e+00  worst 6.3673e+00  avg 6.3673e+00
+m 512,128,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.1494e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 1.3227e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9986e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 5.6187e+00  worst 5.6187e+00  avg 5.6187e+00
+m 512,256,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 8.3440e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 3.0961e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9980e-01
+Cycles/DOF: best 6.4639e+00  worst 6.4639e+00  avg 6.4639e+00
+m 512,256,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 6.0010e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 4.5505e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9976e-01  |e|_max/|u|_max 9.9978e-01
+Cycles/DOF: best 7.8869e+00  worst 7.8869e+00  avg 7.8869e+00
+m 512,256,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2775e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 6.5470e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 7.6990e+00  worst 7.6990e+00  avg 7.6990e+00
+m 512,256,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0367e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 9.3347e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9977e-01  |e|_max/|u|_max 9.9979e-01
+Cycles/DOF: best 7.6677e+00  worst 7.6677e+00  avg 7.6677e+00
+m 512,256,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.1515e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 1.3254e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9980e-01  |e|_max/|u|_max 9.9982e-01
+Cycles/DOF: best 6.0017e+00  worst 6.0017e+00  avg 6.0017e+00
+m 512,256,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.5228e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 1.8781e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9987e-01  |e|_max/|u|_max 9.9988e-01
+Cycles/DOF: best 6.1715e+00  worst 6.1715e+00  avg 6.1715e+00
+m 512,512,16  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 5.9059e-05  |u|_max 1.0082e+00
+Jacobi iteration   0  |r| 4.3874e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 7.7155e+00  worst 7.7155e+00  avg 7.7155e+00
+m 512,512,32  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 4.2475e-05  |u|_max 1.0307e+00
+Jacobi iteration   0  |r| 6.4482e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9986e-01
+Cycles/DOF: best 7.1285e+00  worst 7.1285e+00  avg 7.1285e+00
+m 512,512,64  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 3.0276e-05  |u|_max 1.0306e+00
+Jacobi iteration   0  |r| 9.2772e+04  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9985e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 6.4748e+00  worst 6.4748e+00  avg 6.4748e+00
+m 512,512,128  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 2.1494e-05  |u|_max 1.0316e+00
+Jacobi iteration   0  |r| 1.3227e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9986e-01  |e|_max/|u|_max 9.9987e-01
+Cycles/DOF: best 6.2776e+00  worst 6.2776e+00  avg 6.2776e+00
+m 512,512,256  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.5228e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 1.8781e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9987e-01  |e|_max/|u|_max 9.9988e-01
+Cycles/DOF: best 5.7335e+00  worst 5.7335e+00  avg 5.7335e+00
+m 512,512,512  L 1.000000 1.000000 1.000000
+L2 norm of exact solution |u|_2 1.0778e-05  |u|_max 1.0317e+00
+Jacobi iteration   0  |r| 2.6612e+05  |r|/|b| 1.0000e+00
+L2 norm of error |e|_2/|u|_2 9.9990e-01  |e|_max/|u|_max 9.9991e-01
+Cycles/DOF: best 6.0369e+00  worst 6.0369e+00  avg 6.0369e+00
