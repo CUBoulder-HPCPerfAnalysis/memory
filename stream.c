@@ -46,6 +46,7 @@
 # include <float.h>
 # include <limits.h>
 # include <sys/time.h>
+# include <stdlib.h>
 
 /*-----------------------------------------------------------------------
  * INSTRUCTIONS:
@@ -177,22 +178,31 @@
 #endif
 
 static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
-			b[STREAM_ARRAY_SIZE+OFFSET],
-			c[STREAM_ARRAY_SIZE+OFFSET];
+			        b[STREAM_ARRAY_SIZE+OFFSET],
+			        c[STREAM_ARRAY_SIZE+OFFSET];
 
-static double	avgtime[6] = {0}, maxtime[6] = {0},
-		mintime[6] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
-static char	*label[6] = {"Copy:      ", "Scale:     ",
-                             "Add:       ", "Triad:     ",
-                             "Dot:       ", "Add_BlkCyc:"};
+static double   avgtime[10] = {0};
+static double   maxtime[10] = {0};
+static double   mintime[10] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,
+                               FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
+static char	*label[10] = {"Copy:      ", "Scale:     ",
+                          "Add:       ", "Triad:     ",
+                          "Dot:       ",
+                          "Copy_Block:", "Scale_Block:",
+                          "Add_Block: ", "Triad_Block:",
+                          "Dot_Block: "};
 
-static double	bytes[6] = {
+static double	bytes[10] = {
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
     2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
-    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
+    2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
+    2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
+    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
+    3 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE,
+    2 * sizeof(STREAM_TYPE) * STREAM_ARRAY_SIZE
     };
 
 extern double mysecond();
@@ -203,7 +213,7 @@ extern void tuned_STREAM_Scale(STREAM_TYPE scalar);
 extern void tuned_STREAM_Add();
 extern void tuned_STREAM_Triad(STREAM_TYPE scalar);
 extern STREAM_TYPE tuned_STREAM_Dot();
-extern void tuned_STREAM_Add_BlkCyc(int stream_skip_length);
+extern void tuned_STREAM_Add_BlkCyc();
 #endif
 #ifdef _OPENMP
 extern int omp_get_num_threads();
@@ -213,25 +223,23 @@ int main(int argc, char *argv[])
 
     int			quantum, checktick();
     int			BytesPerWord;
+    int         numThreads = 1;
     int			k;
-    ssize_t		j;
-    STREAM_TYPE		scalar,resn;
-    double		t, times[6][NTIMES];
-    int 		stream_skip_length = 64; // For my Intel Core 2 Duo T6500, at least.
+    size_t		j;
+    size_t      j_block_cyclic_map[STREAM_ARRAY_SIZE];
+    int         block_size = 1;
+    STREAM_TYPE	scalar,resn;
+    double		t, times[10][NTIMES];
 
     /* --- SETUP --- determine precision and check timing --- */
 
+    // Parse input argument specifying block size
     if ( argc == 2 ) {
-	int temp = atoi(argv[1]);
-	if (temp < 1 || temp > 1024) {
-            printf("Argument specifying cache line size must be in the range [1,1024].\n");
-	    return -1;
-	}
-        stream_skip_length = atoi(argv[1]);
+        block_size = atoi(argv[1]);
     }
 
     printf(HLINE);
-    printf("Using stream_skip_length of %3i\n", stream_skip_length);
+    printf("Using block_size of %3i\n", block_size);
 
     printf(HLINE);
     printf("STREAM version $Revision: 5.10 $\n");
@@ -266,19 +274,48 @@ int main(int argc, char *argv[])
     {
 #pragma omp master
 	{
-	    k = omp_get_num_threads();
-	    printf ("Number of Threads requested = %i\n",k);
+	    numThreads = omp_get_num_threads();
+	    printf ("Number of Threads requested = %i\n",numThreads);
         }
     }
 #endif
 
 #ifdef _OPENMP
-	k = 0;
+	numThreads = 0;
 #pragma omp parallel
 #pragma omp atomic 
-		k++;
-    printf ("Number of Threads counted = %i\n",k);
+		numThreads++;
+    printf ("Number of Threads counted = %i\n",numThreads);
 #endif
+
+    /* Initialize block cyclic mapping for the stream index j */
+    // The following are conversions from my scratch work...
+    // block_size = r
+    // numThreads = P
+    // STREAM_ARRAY_SIZE = N
+    // cycles = c
+    // firstThreadNotFilled = L
+    // unusedBlocks = U
+    
+    // Number of cycles needed to index the whole stream
+    int cycles = ceil( ((float)STREAM_ARRAY_SIZE) / (block_size * numThreads) );
+    // First thread which is not fully filled in the last cycle
+    int firstThreadNotFilled = ( (STREAM_ARRAY_SIZE-1) / block_size ) % numThreads;
+    // Number of unused blocks in the last cycle    
+    int unusedBlocks = (block_size-1) - (STREAM_ARRAY_SIZE-1) % block_size;
+
+    // Create the mapping array.
+    for (j=0; j<STREAM_ARRAY_SIZE; j++) {
+        int b = j / (block_size * numThreads);
+        int p = (j / block_size) % numThreads;
+        int a1 = j % block_size;
+        int a2 = b * block_size;
+        int a3 = ( (j/block_size) % numThreads ) * block_size * cycles;
+        int a4 = -unusedBlocks * (p > firstThreadNotFilled);
+        int a5 = -block_size * (p-1-firstThreadNotFilled) * (p-1 > firstThreadNotFilled);
+        j_block_cyclic_map[j] = a1 + a2 + a3 + a4 + a5;
+        printf("%3zu %3zu\n",j,j_block_cyclic_map[j]);
+    }
 
     /* Get initial value for system clock. */
 #pragma omp parallel for
@@ -376,17 +413,56 @@ int main(int argc, char *argv[])
 
 	times[5][k] = mysecond();
 #ifdef TUNED
-        tuned_STREAM_Add_BlkCyc(stream_skip_length);
+        tuned_STREAM_Copy();
 #else
-	int i_map = 0;
 #pragma omp parallel for
-	for (j=0; j<STREAM_ARRAY_SIZE; j++) {
-	    i_map = (j*stream_skip_length)%STREAM_ARRAY_SIZE + (j*stream_skip_length)/STREAM_ARRAY_SIZE;
-	    c[i_map] = a[i_map]+b[i_map];
-	}
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+	    c[j_block_cyclic_map[j]] = a[j_block_cyclic_map[j]];
 #endif
 	times[5][k] = mysecond() - times[5][k];
-	//printf("Run %2i time: %11.6f\n", k, times[5][k]);
+
+	times[6][k] = mysecond();
+#ifdef TUNED
+        tuned_STREAM_Scale(scalar);
+#else
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+	    b[j_block_cyclic_map[j]] = scalar*c[j_block_cyclic_map[j]];
+#endif
+	times[6][k] = mysecond() - times[6][k];
+	
+	times[7][k] = mysecond();
+#ifdef TUNED
+        tuned_STREAM_Add();
+#else
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+	    c[j_block_cyclic_map[j]] = a[j_block_cyclic_map[j]]+b[j_block_cyclic_map[j]];
+#endif
+	times[7][k] = mysecond() - times[7][k];
+	
+	times[8][k] = mysecond();
+#ifdef TUNED
+        tuned_STREAM_Triad(scalar);
+#else
+#pragma omp parallel for
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+	    a[j_block_cyclic_map[j]] = b[j_block_cyclic_map[j]]+scalar*c[j_block_cyclic_map[j]];
+#endif
+	times[8][k] = mysecond() - times[8][k];
+
+	times[9][k] = mysecond();
+#ifdef TUNED
+        resn = tuned_STREAM_Dot();
+#else
+	resn = 0.0;
+#pragma omp parallel for reduction(+:resn)
+	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+		resn += b[j_block_cyclic_map[j]]*c[j_block_cyclic_map[j]];
+#endif
+	times[9][k] = mysecond() - times[9][k];
+
+	//printf("Run %2i time: %11.6f\n", k, times[10][k]);
 	}
 
     printf("resn %f \n",resn);
@@ -394,7 +470,7 @@ int main(int argc, char *argv[])
 
     for (k=1; k<NTIMES; k++) /* note -- skip first iteration */
 	{
-	for (j=0; j<6; j++)
+	for (j=0; j<10; j++)
 	    {
 	    avgtime[j] = avgtime[j] + times[j][k];
 	    mintime[j] = MIN(mintime[j], times[j][k]);
@@ -403,7 +479,7 @@ int main(int argc, char *argv[])
 	}
     
     printf("Function    Best Rate MB/s  Avg time     Min time     Max time\n");
-    for (j=0; j<6; j++) {
+    for (j=0; j<10; j++) {
 		avgtime[j] = avgtime[j]/(double)(NTIMES-1);
 
 		printf("%s%12.1f  %11.6f  %11.6f  %11.6f\n", label[j],
@@ -462,11 +538,11 @@ checktick()
 
 double mysecond()
 {
-        struct timeval tp;
-        struct timezone tzp;
+    struct timeval tp;
+    struct timezone tzp;
 
-        gettimeofday(&tp,&tzp);
-        return ( (double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
+    gettimeofday(&tp,&tzp);
+    return ( (double) tp.tv_sec + (double) tp.tv_usec * 1.e-6 );
 }
 
 #ifndef abs
@@ -638,21 +714,8 @@ STREAM_TYPE tuned_STREAM_Dot()
         return sum0+sum1+sum2+sum3;
 }
 
-void tuned_STREAM_Add_BlkCyc(int stream_skip_length)
+void tuned_STREAM_Add_BlkCyc()
 {
-	ssize_t j;
-	int i_map0 = 0, i_map1 = 0, i_map2 = 0, i_map3 = 0;
-#pragma omp parallel for reduction(+:i_map0,i_map1,i_map2,i_map3)
-	for (j=0; j<STREAM_ARRAY_SIZE; j+=4) {
-	    i_map0 = ((j+0)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+0)*stream_skip_length)/STREAM_ARRAY_SIZE;
-	    i_map1 = ((j+1)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+1)*stream_skip_length)/STREAM_ARRAY_SIZE;
-	    i_map2 = ((j+2)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+2)*stream_skip_length)/STREAM_ARRAY_SIZE;
-	    i_map3 = ((j+3)*stream_skip_length)%STREAM_ARRAY_SIZE + ((j+3)*stream_skip_length)/STREAM_ARRAY_SIZE;
-	    c[i_map0] = a[i_map0]+b[i_map0];
-	    c[i_map1] = a[i_map1]+b[i_map1];
-	    c[i_map2] = a[i_map2]+b[i_map2];
-	    c[i_map3] = a[i_map3]+b[i_map3];
-	}
 }
 
 /* end of stubs for the "tuned" versions of the kernels */
