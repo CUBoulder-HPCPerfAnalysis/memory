@@ -25,10 +25,8 @@ fi
 
 echo 'num_procs, pc_type, da_refine, avg_ksp_iterations, snes_solve_time_sec' | tee $results_file
 
-./ex5 on a arch-linux2-c-debug named RyansVAIO with 2 processors
-
 for pc_type in bjacobi asm gamg mg; do
-    for da_refine in {1..6}; do
+    for da_refine in {1..8}; do
         mpiexec -n $num_procs ./ex5 -ksp_converged_reason -log_summary -pc_type $pc_type -da_refine $da_refine |
             grep './ex5 on a\|Linear solve converged due to\|Time (sec):' |
             awk -v pc_type="$pc_type" -v da_refine="$da_refine" '
